@@ -9,7 +9,7 @@
 @endsection
 
 @section('link1')
-	home
+	Inicio
 @endsection
 
 @section('direccion2')
