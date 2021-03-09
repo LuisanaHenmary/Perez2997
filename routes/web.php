@@ -17,7 +17,7 @@ use App\Http\Controllers\RutasController;
 
 Route::get('/', [RutasController::class,'principal'] )->name('pagprincipal');
 
-Route::get('ingreso', [RutasController::class,'ingreso'])->name('ingreso');
+Route::post('ingreso', [RutasController::class,'ingreso'])->name('ingreso');
 
 Route::get('registro', [RutasController::class,'registro'])->name('registro');
 
