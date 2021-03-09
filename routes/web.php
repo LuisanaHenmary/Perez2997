@@ -28,4 +28,4 @@ Route::get('hola', [RutasController::class,'hola'])->name('hola');
 
 Route::post('home',[UsuarioController::class,'ingresar'])->name('home');
 
-Route::get('ind',[UsuarioController::class,'registrar'])->name('ind');
+Route::post('ind',[UsuarioController::class,'registrar'])->name('ind');

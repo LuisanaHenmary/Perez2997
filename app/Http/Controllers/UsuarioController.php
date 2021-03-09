@@ -61,10 +61,11 @@ class UsuarioController extends Controller
                     return view('home',compact('busqueda'));
                 
                 }
+
                 $res.="contraseña invalida";
+
             }
 
-           
     		
             return view('ingreso',compact('res'));
     	
@@ -74,20 +75,42 @@ class UsuarioController extends Controller
 
     public function registrar(){
 
-        if (isset($_GET['Registrar'])) {
+        if (isset($_POST['Registrar'])) {
 
-            $res="";
+            $res=[];
 
-            if (($busqueda = $this->buscarUsuario($_GET['Usuario']))!='') {
+
+            if (($busqueda = $this->buscarUsuario($_POST['Usuario']))=='') {
                 
-                if ($busqueda->clave==$_GET['Clave']) {
-                  
-                    return view('home',compact('busqueda'));
-                
-                }
+                    
+                    
+            }else{
 
-                $res.='contraseña invalida ';
+                    $res[0]='Usuario existente ';
+
             }
+
+            if (($busqueda = $this->buscarCorreo($_POST['Correo']))=='') {  
+
+                
+            
+            }else{
+
+                $res[1]='Correo en uso';
+
+            }
+
+
+            if ($_POST['Clave']==$_POST['Clavec']) {
+
+                return 'hola';
+                
+            }else{
+                $res[2]='las claves no coinciden';
+
+            }
+            
+
 
             return view('registro',compact('res'));
 
