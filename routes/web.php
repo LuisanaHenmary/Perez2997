@@ -17,7 +17,7 @@ use App\Http\Controllers\RutasController;
 
 Route::get('/', [RutasController::class,'principal'] )->name('pagprincipal');
 
-Route::post('ingreso', [RutasController::class,'ingreso'])->name('ingreso');
+Route::get('ingreso', [RutasController::class,'ingreso'])->name('ingreso');
 
 Route::get('registro', [RutasController::class,'registro'])->name('registro');
 
@@ -26,6 +26,6 @@ Route::get('hola', [RutasController::class,'hola'])->name('hola');
 //Route::get('administradores.paquete', [RutasController::class,'paquete'])->name('administradores.paquete');
 
 
-Route::get('home',[UsuarioController::class,'ingresar'])->name('home');
+Route::post('home',[UsuarioController::class,'ingresar'])->name('home');
 
 Route::get('ind',[UsuarioController::class,'registrar'])->name('ind');

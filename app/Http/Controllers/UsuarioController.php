@@ -45,18 +45,18 @@ class UsuarioController extends Controller
 
     public function ingresar(){
 
-    	if (isset($_GET['Ingresar'])) {
+    	if (isset($_POST['Ingresar'])) {
 
             $res="";
 
-            $busqueda = $this->buscarUsuario($_GET['Usuario']);
+            $busqueda = $this->buscarUsuario($_POST['Usuario']);
 
     		if ($busqueda==''){
                 	
                 $res.='Usuario invalido ';
             
             }else{
-                if ($busqueda->clave==$_GET['Clave']) {
+                if ($busqueda->clave==$_POST['Clave']) {
                   
                     return view('home',compact('busqueda'));
                 
