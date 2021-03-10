@@ -52,7 +52,7 @@
        </style>
     </head>
     <body >
-        <header class="clase2 centerleft"><h1>CableUnet</h1></header>
+        <header class="clase2 centerleft"><!--<div><img src="Imagenes\logo.png"></div>--><h1>CableUnet</h1></header>
         <nav class="clase1">
 
           <a href="@yield('direccion')">@yield('link1')</a>

@@ -23,6 +23,8 @@ Route::get('registro', [RutasController::class,'registro'])->name('registro');
 
 Route::get('hola', [RutasController::class,'hola'])->name('hola');
 
+Route::get('imprimir', [UsuarioController::class,'imprimir'])->name('imprimir');
+
 //Route::get('administradores.paquete', [RutasController::class,'paquete'])->name('administradores.paquete');
 
 

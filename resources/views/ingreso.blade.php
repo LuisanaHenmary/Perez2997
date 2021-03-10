@@ -29,9 +29,9 @@
 @endsection
 
 @section('contenido')
-
+	
 	<form action="{{ route('home') }}" method="POST">
-		{{csrf_field()}}
+		@csrf
 		<label for="Usuario" class="p_bottom">Usuario:</label>
 		<input type="text" name="Usuario" id="Usuario" required="true" class="p_bottom"><br>
 		<label for="Clave" class="p_bottom">Contraseña:</label>

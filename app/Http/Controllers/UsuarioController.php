@@ -8,12 +8,22 @@ use Illuminate\Http\Request;
 class UsuarioController extends Controller
 {
 
+
+    public function imprimir(){
+        $user = Usuario::all();
+
+        return view('imprimir',compact('user'));
+
+    }
+
 	public function buscarUsuario($cadena){
+
     	$user = Usuario::all();
 
     	foreach ($user as $value) {
-    		
-            if ($cadena==$value->Usuario) {
+    		//
+            //
+            if (strcmp($cadena, $value->Usuario)==0) {
 
     			return $value;
 
@@ -32,7 +42,7 @@ class UsuarioController extends Controller
 
         foreach ($user as $value) {
             
-            if ($cadena==$value->correo) {
+            if ($cadena == $value->correo) {
 
                 return $value;
             }
@@ -43,70 +53,92 @@ class UsuarioController extends Controller
 
     }
 
-    public function ingresar(){
+    public function ingresar(Request $request){
 
     	if (isset($_POST['Ingresar'])) {
 
-            $res="";
+            dd($request->Usuario);
 
-            $busqueda = $this->buscarUsuario($_POST['Usuario']);
+           /* $res = "";
 
-    		if ($busqueda==''){
+            $busqueda = $this->buscarUsuario($request->Usuario);
+
+    		if ($busqueda == ''){
                 	
-                $res.='Usuario invalido ';
+                $res .= 'Usuario invalido ';
             
             }else{
-                if ($busqueda->clave==$_POST['Clave']) {
+                if ($busqueda->clave == $request->Clave) {
+
+
+                    if ($busqueda->tipoUsu=='a') {
+                         return view('home',compact('busqueda'));
+                    }
+                    if ($busqueda->tipoUsu=='s') {
+                         return view('home2',compact('busqueda'));
+                    }
                   
-                    return view('home',compact('busqueda'));
+                   
                 
                 }
 
-                $res.="contraseña invalida";
+                $res .= "contraseña invalida";
 
             }
 
     		
-            return view('ingreso',compact('res'));
+            return view('ingreso',compact('res'));*/
     	
         }
     
     }
 
-    public function registrar(){
+    public function registrar(Request $request){
 
         if (isset($_POST['Registrar'])) {
 
-            $res=[];
+            $res = [];
 
-
-            if (($busqueda = $this->buscarUsuario($_POST['Usuario']))=='') {
+            $puntos = 0;
+            if (($busqueda = $this->buscarUsuario($_POST['Usuario'])) == '') {
                 
-                    
+                   $puntos++; 
                     
             }else{
 
-                    $res[0]='Usuario existente ';
+                    $res[0] = 'Usuario existente ';
 
             }
 
-            if (($busqueda = $this->buscarCorreo($_POST['Correo']))=='') {  
+            if (($busqueda = $this->buscarCorreo($_POST['Correo'])) == '') {  
 
-                
-            
+                $puntos++;
+                   
             }else{
 
-                $res[1]='Correo en uso';
+                $res[1] = 'Correo en uso';
 
             }
 
 
-            if ($_POST['Clave']==$_POST['Clavec']) {
+            if ($_POST['Clave'] == $_POST['Clavec']) {
 
-                return 'hola';
-                
+                if ($puntos == 2) {
+                    
+                    $registro = new Usuario;
+                    $registro->Usuario = $request->Usuario;
+                    $registro->nombres =  $request->Nombres;
+                    $registro->apellidos = $request->Apellidos;
+                    $registro->correo =  $request->Correo;
+                    $registro->clave = $request->Clave;
+                    $registro->tipoUsu =  $request->TipoUsuario;
+                    $registro->save();
+                     return back()->with('mensaje', 'Registro exitoso');
+                }
+
             }else{
-                $res[2]='las claves no coinciden';
+
+                $res[2] = 'las claves no coinciden';
 
             }
             
