@@ -23,10 +23,6 @@ Route::get('registro', [RutasController::class,'registro'])->name('registro');
 
 Route::get('home',[RutasController::class,'inicio'])->name('home');
 
-Route::get('hola', [RutasController::class,'hola'])->name('hola');
-
-
-
 Route::get('/administradores/paquete', [RutasController::class,'paquete'])->name('administradores.paquete');
 
 

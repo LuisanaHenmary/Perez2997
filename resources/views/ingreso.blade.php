@@ -30,7 +30,7 @@
 
 @section('contenido')
 	
-	<form action="{{ route('home') }}" method="POST">
+	<form class="centerleft" action="{{ route('home') }}" method="POST">
 		@csrf
 		<label for="Usuario" class="p_bottom">Usuario:</label>
 		<input type="text" name="Usuario" id="Usuario" required="true" class="p_bottom"><br>
@@ -41,8 +41,8 @@
 
 
 	@if ( session('mensaje') )
-    	<div >{{ session('mensaje') }}</div>
+    	<div class="centerleft" >{{ session('mensaje') }}</div>
 	@endif
 
-	<p>¿No tiene cuenta? <a style="color:blue;" href="{{route('registro')}}">Registrate</a></p>
+	<p class="centerleft">¿No tiene cuenta? <a style="color:blue;" href="{{route('registro')}}">Registrate</a></p>
 @endsection

@@ -15,7 +15,7 @@ class CreateInternetsTable extends Migration
     {
         Schema::create('internets', function (Blueprint $table) {
             $table->id();
-            $table->int('banda');
+            $table->integer('banda');
             $table->float('precio');
             $table->timestamps();
         });

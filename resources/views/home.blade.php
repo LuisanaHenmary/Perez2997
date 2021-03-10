@@ -29,5 +29,5 @@
 @endsection
 
 @section('contenido')
-	<p>Bien</p>
+	<p>Bienvenido administrador</p>
 @endsection

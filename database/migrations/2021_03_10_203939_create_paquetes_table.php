@@ -16,7 +16,7 @@ class CreatePaquetesTable extends Migration
         Schema::create('paquetes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->int('internet');
+            $table->integer('internet');
             $table->float('precio');
             $table->timestamps();
         });

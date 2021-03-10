@@ -21,10 +21,5 @@
 @endsection
 
 @section('contenido')
-		@if($datos->count())
-
-		@foreach($datos as $d)
-		<p>hola {{$d->clave}} 2</p>
-	@endforeach
-	@endif
+	<p>Bienvenido suscriptor</p>
 @endsection

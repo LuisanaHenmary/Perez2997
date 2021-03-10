@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -63,7 +61,7 @@
         	<a href="{{route('ingreso')}}" >Ingresar</a>-->
 
         </nav>
-        <section  class="centerleft p_top" >@yield('contenido')</section>
+        <section  class="p_top" >@yield('contenido')</section>
         
 
     </body>

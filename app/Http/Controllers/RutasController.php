@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 class RutasController extends Controller
 {
 
-	public function hola() {
-    	return 'hola';
-	}
-
 	public function principal() {
     	return view('pagprincipal');
 	}
@@ -31,4 +27,6 @@ class RutasController extends Controller
 
 		return view('administradores.paquete');
 	}
+
+
 }

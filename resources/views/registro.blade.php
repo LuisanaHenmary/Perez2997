@@ -29,7 +29,7 @@
 @endsection
 
 @section('contenido')
-	<form action="{{ route('ind') }}" method="POST">
+	<form class="centerleft" action="{{ route('ind') }}" method="POST">
 		@csrf
 		<label for="Usuario" class="p_bottom">Nombre de Usuario:</label>
 		<input type="text" name="Usuario" id="Usuario" required="true" class="p_bottom"><br>
@@ -44,17 +44,17 @@
 		<label for="Clavec" class="p_bottom">Confirmar contraseña:</label>
 		<input type="password" name="Clavec" id="Clavec" required="true" class="p_bottom"><br>
 		<input type="hidden" name="TipoUsuario" id="TipoUsuario" value="s">
-
 		<input type="submit" name="Registrar" value="Registrar" required="true" class="clase1">
 	</form>
+
 	@if(isset($res))
 		@foreach($res as $s)
-			<p>{{$s}}</p>
+			<p class="centerleft">{{$s}}</p>
 		@endforeach
 	@endif
 
 	@if ( session('mensaje') )
-    	<div >{{ session('mensaje') }}</div>
+    	<div class="centerleft">{{ session('mensaje') }}</div>
 	@endif
 @endsection
 
