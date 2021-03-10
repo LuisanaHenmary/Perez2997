@@ -5,26 +5,29 @@
 @endsection
 
 @section('direccion')
-	{{route('hola')}}
+	{{route('home')}}
 @endsection
 
 @section('link1')
-	paquetes
+	inicio
 @endsection
 
 @section('direccion2')
-	{{route('pagprincipal')}}
+	{{route('administradores.paquete')}}
 @endsection
 
 @section('link2')
+	paquetes
+@endsection
+
+@section('direccion3')
+	{{route('pagprincipal')}}
+@endsection
+
+@section('link3')
 	salir
 @endsection
 
 @section('contenido')
-	@if($datos->count())
-
-		@foreach($datos as $d)
-		<p>hola {{$d->clave}}</p>
-	@endforeach
-	@endif
+	<p>Bien</p>
 @endsection

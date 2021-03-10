@@ -22,8 +22,13 @@ class RutasController extends Controller
 	public function registro(){
 		return view('registro');
 	}
-	/*public function paquete(){
-		$res = "resulto esto";
-		return view('administradores.paquete',compact('res'));
-	}*/
+
+	public function inicio(){
+		return view('home');
+	}
+
+	public function paquete(){
+
+		return view('administradores.paquete');
+	}
 }
