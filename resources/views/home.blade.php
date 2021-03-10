@@ -21,7 +21,10 @@
 @endsection
 
 @section('contenido')
-	@if($busqueda->count())
-		<p>Bienvenida {{$busqueda->nombres}}</p>
+	@if($datos->count())
+
+		@foreach($datos as $d)
+		<p>hola {{$d->clave}}</p>
+	@endforeach
 	@endif
 @endsection

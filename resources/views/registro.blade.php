@@ -43,7 +43,7 @@
 		<input type="password" name="Clave" id="Clave" required="true" class="p_bottom"><br>
 		<label for="Clavec" class="p_bottom">Confirmar contraseña:</label>
 		<input type="password" name="Clavec" id="Clavec" required="true" class="p_bottom"><br>
-		<input type="hidden" name="TipoUsuario" id="TipoUsuario" value="suscriptor(a)">
+		<input type="hidden" name="TipoUsuario" id="TipoUsuario" value="s">
 
 		<input type="submit" name="Registrar" value="Registrar" required="true" class="clase1">
 	</form>

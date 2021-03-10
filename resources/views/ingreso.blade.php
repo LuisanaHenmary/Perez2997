@@ -40,8 +40,8 @@
 	</form>
 
 
-	@if(isset($res))
-		<p>{{$res}}</p>
+	@if ( session('mensaje') )
+    	<div >{{ session('mensaje') }}</div>
 	@endif
 
 	<p>¿No tiene cuenta? <a style="color:blue;" href="{{route('registro')}}">Registrate</a></p>

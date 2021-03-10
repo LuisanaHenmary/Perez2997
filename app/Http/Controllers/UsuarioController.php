@@ -8,86 +8,38 @@ use Illuminate\Http\Request;
 class UsuarioController extends Controller
 {
 
-
-    public function imprimir(){
-        $user = Usuario::all();
-
-        return view('imprimir',compact('user'));
-
-    }
-
-	public function buscarUsuario($cadena){
-
-    	$user = Usuario::all();
-
-    	foreach ($user as $value) {
-    		//
-            //
-            if (strcmp($cadena, $value->Usuario)==0) {
-
-    			return $value;
-
-    		}
-   
-    		return '';
-    	
-        }
-
-    }
-
-
-    public function buscarCorreo($cadena){
-        
-        $user = Usuario::all();
-
-        foreach ($user as $value) {
-            
-            if ($cadena == $value->correo) {
-
-                return $value;
-            }
-            
-            return '';
-        
-        }
-
-    }
-
     public function ingresar(Request $request){
 
     	if (isset($_POST['Ingresar'])) {
 
-            dd($request->Usuario);
 
-           /* $res = "";
+            $busqueda = Usuario::user($request->Usuario);
+            $datos = $busqueda->get();
 
-            $busqueda = $this->buscarUsuario($request->Usuario);
-
-    		if ($busqueda == ''){
-                	
-                $res .= 'Usuario invalido ';
+    	    if ($busqueda->count()){
             
-            }else{
-                if ($busqueda->clave == $request->Clave) {
+                 if ($busqueda->value('clave') == $request->Clave) {
 
 
-                    if ($busqueda->tipoUsu=='a') {
-                         return view('home',compact('busqueda'));
+                    if ($busqueda->value('tipoUsu')=='a') {
+                        
+                        $datos = $busqueda->get();
+                        return view('home',compact('datos'));
+                        
                     }
-                    if ($busqueda->tipoUsu=='s') {
-                         return view('home2',compact('busqueda'));
+                    if ($busqueda->value('tipoUsu')=='s') {
+
+                        return view('home2',compact('datos'));
+                    
                     }
-                  
-                   
                 
-                }
+                }    
 
-                $res .= "contraseña invalida";
-
+                return back()->with('mensaje', 'contraseña invalida');	
+                
             }
-
     		
-            return view('ingreso',compact('res'));*/
+            return back()->with('mensaje', 'Usuario invalido');
     	
         }
     
@@ -97,31 +49,38 @@ class UsuarioController extends Controller
 
         if (isset($_POST['Registrar'])) {
 
+            
+            $busquedaUsu = Usuario::user($request->Usuario);
+
+            $busquedaCorreo = Usuario::mail($request->Correo);
+
             $res = [];
 
             $puntos = 0;
-            if (($busqueda = $this->buscarUsuario($_POST['Usuario'])) == '') {
-                
-                   $puntos++; 
-                    
+
+
+            if ($busquedaUsu->count()) {
+               
+                $res[0] = 'Usuario existente ';
+                                      
             }else{
 
-                    $res[0] = 'Usuario existente ';
-
+                $puntos++; 
+                 
             }
 
-            if (($busqueda = $this->buscarCorreo($_POST['Correo'])) == '') {  
 
-                $puntos++;
+            if ($busquedaCorreo->count()) {  
+
+                $res[1] = 'Correo en uso';
                    
             }else{
 
-                $res[1] = 'Correo en uso';
-
+                $puntos++;
             }
 
 
-            if ($_POST['Clave'] == $_POST['Clavec']) {
+            if ($request->Clave == $request->Clavec) {
 
                 if ($puntos == 2) {
                     
