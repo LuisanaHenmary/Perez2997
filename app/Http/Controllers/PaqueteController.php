@@ -21,6 +21,8 @@ class PaqueteController extends Controller
     			 $registro->internet = $request->internet;
     			 $precio += $request->prec_internet;
 
+    		}else{
+    			$registro->internet = 0;
     		}
     		
     		if (isset($request->telefonia) && isset($request->prec_tel)) {
@@ -28,6 +30,8 @@ class PaqueteController extends Controller
     			$registro->minutosTelefonia = $request->telefonia;
     			$precio += $request->prec_tel;
     		
+    		}else{
+    			$registro->minutosTelefonia = 0;
     		}
 
     		if (isset($request->cable)  && isset($request->prec_cable)) {
@@ -35,6 +39,8 @@ class PaqueteController extends Controller
     			$registro->planCable = $request->cable;
     			$precio += $request->prec_cable;
     		
+    		}else{
+    			$registro->planCable ="";
     		}
 
     		$registro->precio= $precio;
