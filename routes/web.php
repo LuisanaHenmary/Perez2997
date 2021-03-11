@@ -22,12 +22,12 @@ Route::get('ingreso', [RutasController::class,'ingreso'])->name('ingreso');
 Route::get('registro', [RutasController::class,'registro'])->name('registro');
 
 
-Route::get('/administradores/home',[RutasController::class,'inicio'])->name('administradores.home');
+Route::get('/administradores/',[RutasController::class,'inicio'])->name('administradores.home');
 
 Route::get('/administradores/paquete', [RutasController::class,'paquete'])->name('administradores.paquete');
 
 
-Route::get('/suscriptores/home2',[RutasController::class,'inicio2'])->name('suscriptores.home2');
+Route::get('/suscriptores/',[RutasController::class,'inicio2'])->name('suscriptores.home2');
 
 
 Route::post('ingresando',[UsuarioController::class,'ingresar'])->name('ingresando');
