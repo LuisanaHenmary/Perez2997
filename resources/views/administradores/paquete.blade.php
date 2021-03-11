@@ -46,7 +46,6 @@
 		<br><br>
 
 		<label for="internet">Internet:</label><br>
-		<label for="internet">Banda:</label>
 		<input type="number" name="internet" id="internet" step='5' disabled>
 		<label for="prec_internet">Precio:</label>
 		<input type="text" name="prec_internet" id="prec_internet" style="width: 50px;" disabled><br><br>
@@ -65,9 +64,9 @@
 		<label for="cable">Plan clave:</label>
 		<select name="cable" id="cable"   autofocus disabled>
 			<option value="0">-</option>
-			<option value="20">paja</option>
-			<option value="30">madera</option>
-			<option value="50">ladrillo</option>
+			<option value="paja">paja</option>
+			<option value="madera">madera</option>
+			<option value="ladrillo">ladrillo</option>
 		</select>
 		<label for="prec_cable">Precio:</label>
 		<input type="text" name="prec_cable" id="prec_cable" style="width: 50px;" disabled>

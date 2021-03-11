@@ -17,6 +17,8 @@ class CreatePaquetesTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->integer('internet');
+            $table->integer('minutosTelefonia');
+            $table->string('planCable');
             $table->float('precio');
             $table->timestamps();
         });
