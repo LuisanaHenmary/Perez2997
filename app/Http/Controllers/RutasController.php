@@ -23,6 +23,10 @@ class RutasController extends Controller
 		return view('home');
 	}
 
+	public function inicio2(){
+		return view('home2');
+	}
+
 	public function paquete(){
 
 		return view('administradores.paquete');
