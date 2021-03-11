@@ -22,6 +22,12 @@ Route::get('ingreso', [RutasController::class,'ingreso'])->name('ingreso');
 
 Route::get('registro', [RutasController::class,'registro'])->name('registro');
 
+Route::post('ingresando',[UsuarioController::class,'ingresar'])->name('ingresando');
+
+Route::post('registrando',[UsuarioController::class,'registrar'])->name('registrando');
+
+
+
 
 Route::get('/administradores/',[RutasController::class,'inicio'])->name('administradores.home');
 
@@ -33,7 +39,7 @@ Route::post('/administradores/crear',[PaqueteController::class,'creaPaquete'])->
 
 Route::get('/suscriptores/',[RutasController::class,'inicio2'])->name('suscriptores.home2');
 
+Route::get('/suscriptores/servicios',[RutasController::class,'catalogo'])->name('suscriptores.servicios');
 
-Route::post('ingresando',[UsuarioController::class,'ingresar'])->name('ingresando');
 
-Route::post('registrando',[UsuarioController::class,'registrar'])->name('registrando');
+

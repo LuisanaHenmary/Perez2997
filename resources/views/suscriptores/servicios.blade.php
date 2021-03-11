@@ -30,5 +30,17 @@
 @endsection
 
 @section('contenido')
-	<p>Bienvenido suscriptor</p>
+	@if($muestras->count())
+		@foreach($muestras as $p)
+			<p>--------------</p>
+			<p>{{$p->nombre}}</p>
+			<p>{{$p->internet}}</p>
+			<p>{{$p->minutosTelefonia}}</p>
+			<p>{{$p->planCable}}</p>
+			<p>{{$p->precio}}</p>
+
+		@endforeach
+	@endif
+	<p>Bienvenido al servicio</p>
+	
 @endsection

@@ -51,4 +51,6 @@ class PaqueteController extends Controller
     	}
     	
     }
+
+   
 }
