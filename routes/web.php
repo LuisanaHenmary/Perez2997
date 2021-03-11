@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RutasController;
+use App\Http\Controllers\PaqueteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,9 @@ Route::get('registro', [RutasController::class,'registro'])->name('registro');
 Route::get('/administradores/',[RutasController::class,'inicio'])->name('administradores.home');
 
 Route::get('/administradores/paquete', [RutasController::class,'paquete'])->name('administradores.paquete');
+
+Route::post('/administradores/crear',[PaqueteController::class,'creaPaquete'])->name('administradores.crear');
+
 
 
 Route::get('/suscriptores/',[RutasController::class,'inicio2'])->name('suscriptores.home2');

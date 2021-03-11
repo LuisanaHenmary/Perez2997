@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Usuario;
-
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -10,7 +9,7 @@ class UsuarioController extends Controller
 
     public function ingresar(Request $request){
 
-    	if (isset($_POST['Ingresar'])) {
+    	if (isset($request->Ingresar)) {
 
 
             $busqueda = Usuario::user($request->Usuario);
@@ -47,7 +46,7 @@ class UsuarioController extends Controller
 
     public function registrar(Request $request){
 
-        if (isset($_POST['Registrar'])) {
+        if (isset($request->Registrar)) {
 
             
             $busquedaUsu = Usuario::user($request->Usuario);
