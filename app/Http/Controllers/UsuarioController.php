@@ -22,7 +22,6 @@ class UsuarioController extends Controller
 
                     if ($busqueda->value('tipoUsu')=='a') {
                         
-                        $datos = $busqueda->get();
                         return view('administradores.home',compact('datos'));
                         
                     }

@@ -30,17 +30,100 @@
 @endsection
 
 @section('contenido')
-	@if($muestras->count())
-		@foreach($muestras as $p)
-			<p>--------------</p>
-			<p>{{$p->nombre}}</p>
-			<p>{{$p->internet}}</p>
-			<p>{{$p->minutosTelefonia}}</p>
-			<p>{{$p->planCable}}</p>
-			<p>{{$p->precio}}</p>
+	
+	<section>
+		<?php  
 
-		@endforeach
-	@endif
-	<p>Bienvenido al servicio</p>
+			if ($muestras->count()) {
+				foreach ($muestras as $p) {
+					$servicios = explode(' ', $p->categoria);
+					$num_serv = count($servicios);
+					
+					if ($num_serv==1) {
+						Imprimir("",$p->nombre,$p->precio);
+					}
+					
+				}
+			}		
+
+		?>
+
+	</section>
+
+
+	<section>
+		<?php  
+
+			if ($muestras->count()) {
+				foreach ($muestras as $p) {
+					$servicios = explode(' ', $p->categoria);
+					$num_serv = count($servicios);
+					
+					if ($num_serv==2) {
+						Imprimir($num_serv,$p->nombre,$p->precio);
+					}
+					
+				}
+			}		
+
+		?>
+
+	</section>
+
+
+	<section>
+		<?php  
+
+			if ($muestras->count()) {
+				foreach ($muestras as $p) {
+					$servicios = explode(' ', $p->categoria);
+					$num_serv = count($servicios);
+					
+					if ($num_serv==3) {
+						Imprimir($num_serv,$p->nombre,$p->precio);
+					}
+					
+				}
+			}		
+
+		?>
+
+	</section>
+
+		<?php 
+			function Imprimir($tipo_paquete,$nombre,$precio){
+
+				$cadena = "<table class=\"paquete".$tipo_paquete."\">
+							<thead class=\"titulo".$tipo_paquete."\">
+								<tr><th>".$nombre."
+								</th></tr>
+
+							</thead>"."
+					
+							<tbody><tr ><td>".
+								"<p class=\"circulo\" style=\"margin-left: 5px;\" onclick=\"Elegir()\">click</p>
+								<tr><td>".$precio." $
+								</td></tr>
+							</td></tr></tbody>
+
+							<tfoot class=\"titulo".$tipo_paquete."\"><tr><td>
+
+								<a  href=\"".route('suscriptores.informacion',['paquete'=>$nombre])."\">DETALLES</a>
+							</td></tr></tfoot>
+						</table>";
+					echo $cadena;
+
+
+
+			}
+
+		 ?>
+
+		<script type="text/javascript">
+			
+			function Elegir(){
+				alert("hola");
+			}
+		</script>
 	
 @endsection

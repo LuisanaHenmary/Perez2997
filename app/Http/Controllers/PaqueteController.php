@@ -9,7 +9,8 @@ class PaqueteController extends Controller
 {
     public function creaPaquete(Request $request){
 
-    	$precio =0;
+    	$precio = 0;
+        $categoria = '';
 
     	if(isset($request->Crear)){
     		
@@ -20,6 +21,8 @@ class PaqueteController extends Controller
     			
     			 $registro->internet = $request->internet;
     			 $precio += $request->prec_internet;
+                  $categoria .= 'internet';
+
 
     		}else{
     			$registro->internet = 0;
@@ -29,6 +32,15 @@ class PaqueteController extends Controller
 
     			$registro->minutosTelefonia = $request->telefonia;
     			$precio += $request->prec_tel;
+                
+                if ($categoria != '') {
+                
+                    $categoria .=' ';
+                
+                 }
+                $categoria .= 'telefonia';
+
+
     		
     		}else{
     			$registro->minutosTelefonia = 0;
@@ -38,12 +50,21 @@ class PaqueteController extends Controller
     		
     			$registro->planCable = $request->cable;
     			$precio += $request->prec_cable;
+
+                if ($categoria != '') {
+                
+                    $categoria .=' ';
+                
+                 }
+
+                $categoria .= 'cable';
     		
     		}else{
     			$registro->planCable ="";
     		}
 
-    		$registro->precio= $precio;
+    		$registro->precio = $precio;
+            $registro->categoria = $categoria;
     		$registro->save();
 
     		return back()->with('mensaje', 'Paquete guardado');	

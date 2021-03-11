@@ -42,4 +42,9 @@ class RutasController extends Controller
     	return view('suscriptores.servicios',compact('muestras'));
     }
 
+    public function infProduct($paquete){
+    	$buscar = Paquete::nombre($paquete)->get();
+    	return view('suscriptores.informacion',compact('buscar'));
+    }
+
 }

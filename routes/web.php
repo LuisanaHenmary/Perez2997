@@ -41,5 +41,8 @@ Route::get('/suscriptores/',[RutasController::class,'inicio2'])->name('suscripto
 
 Route::get('/suscriptores/servicios',[RutasController::class,'catalogo'])->name('suscriptores.servicios');
 
+Route::get('/suscriptores/informacion/{paquete}',[RutasController::class,'infProduct'])->name('suscriptores.informacion');
+
+
 
 

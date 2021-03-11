@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Paquete extends Model
 {
     use HasFactory;
+
+    public function scopeNombre($query,$nombre){
+
+    	$query->where('nombre',$nombre);
+    	
+    }
 }
