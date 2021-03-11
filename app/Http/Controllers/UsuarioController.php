@@ -24,12 +24,12 @@ class UsuarioController extends Controller
                     if ($busqueda->value('tipoUsu')=='a') {
                         
                         $datos = $busqueda->get();
-                        return view('home',compact('datos'));
+                        return view('administradores.home',compact('datos'));
                         
                     }
                     if ($busqueda->value('tipoUsu')=='s') {
 
-                        return view('home2',compact('datos'));
+                        return view('suscriptores.home2',compact('datos'));
                     
                     }
                 

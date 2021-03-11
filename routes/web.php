@@ -21,13 +21,15 @@ Route::get('ingreso', [RutasController::class,'ingreso'])->name('ingreso');
 
 Route::get('registro', [RutasController::class,'registro'])->name('registro');
 
-Route::get('home',[RutasController::class,'inicio'])->name('home');
 
-Route::get('home2',[RutasController::class,'inicio2'])->name('home2');
+Route::get('/administradores/home',[RutasController::class,'inicio'])->name('administradores.home');
 
 Route::get('/administradores/paquete', [RutasController::class,'paquete'])->name('administradores.paquete');
 
 
-Route::post('home',[UsuarioController::class,'ingresar'])->name('home');
+Route::get('/suscriptores/home2',[RutasController::class,'inicio2'])->name('suscriptores.home2');
 
-Route::post('ind',[UsuarioController::class,'registrar'])->name('ind');
+
+Route::post('ingresando',[UsuarioController::class,'ingresar'])->name('ingresando');
+
+Route::post('registrando',[UsuarioController::class,'registrar'])->name('registrando');

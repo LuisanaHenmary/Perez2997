@@ -5,11 +5,11 @@
 @endsection
 
 @section('direccion')
-	{{route('home')}}
+	{{route('administradores.home')}}
 @endsection
 
 @section('link1')
-	inicio
+	Inicio
 @endsection
 
 @section('direccion2')
@@ -17,7 +17,7 @@
 @endsection
 
 @section('link2')
-	paquetes
+	Paquetes
 @endsection
 
 @section('direccion3')
@@ -25,7 +25,7 @@
 @endsection
 
 @section('link3')
-	salir
+	Salir
 @endsection
 
 @section('contenido')

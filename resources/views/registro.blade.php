@@ -1,4 +1,4 @@
-@extends('publica');
+@extends('publica')
 
 @section('pageName')
     registro
@@ -29,7 +29,7 @@
 @endsection
 
 @section('contenido')
-	<form class="centerleft" action="{{ route('ind') }}" method="POST">
+	<form class="centerleft" action="{{ route('registrando') }}" method="POST">
 		@csrf
 		<label for="Usuario" class="p_bottom">Nombre de Usuario:</label>
 		<input type="text" name="Usuario" id="Usuario" required="true" class="p_bottom"><br>

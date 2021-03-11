@@ -5,11 +5,11 @@
 @endsection
 
 @section('direccion')
-	#
+	{{route('suscriptores.home2')}}
 @endsection
 
 @section('link1')
-	catalogo
+	Inicio
 @endsection
 
 @section('direccion2')
@@ -17,7 +17,7 @@
 @endsection
 
 @section('link2')
-	salir
+	Salir
 @endsection
 
 @section('contenido')
