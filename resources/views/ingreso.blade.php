@@ -30,7 +30,7 @@
 
 @section('contenido')
 	
-	<form class="centerleft" action="{{ route('ingresando') }}" method="POST">
+	<form class="centerleft" action="{{ route('ingreso') }}" method="POST">
 		@csrf
 		<label for="Usuario" class="p_bottom">Usuario:</label>
 		<input type="text" name="Usuario" id="Usuario" required="true" class="p_bottom"><br>

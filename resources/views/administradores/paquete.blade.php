@@ -32,7 +32,7 @@
 
 
 
-	<form class="centerleft" method="POST" action="{{route('administradores.crear')}}">
+	<form class="centerleft" method="POST" action="{{route('administradores.paquete')}}">
 		@csrf
 		<label  for="nomb_paqu">Nombre paquete:</label>	
 		<input type="text" name="nomb_paqu" id="nomb_paqu">	<br><br>
