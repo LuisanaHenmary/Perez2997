@@ -21,10 +21,18 @@
 @endsection
 
 @section('direccion3')
-	{{route('pagprincipal')}}
+	{{route('administradores.canales')}}
 @endsection
 
 @section('link3')
+	Canales
+@endsection
+
+@section('direccion4')
+	{{route('pagprincipal')}}
+@endsection
+
+@section('link4')
 	Salir
 @endsection
 
@@ -37,7 +45,7 @@
 
 
 		<label  for="nomb_paqu">Nombre paquete:</label>	
-		<input type="text" name="nomb_paqu" id="nomb_paqu">	<br><br>
+		<input type="text" name="nomb_paqu" id="nomb_paqu" required>	<br><br>
 
 		<label>Servicios:</label><br>	
 		<label  class="p_bottom" for="sinternet">Internet</label>
@@ -51,7 +59,7 @@
 		<label for="internet">Internet:</label><br>
 		<input type="number" name="internet" id="internet" step='5' disabled>
 		<label for="prec_internet">Precio:</label>
-		<input type="text" name="prec_internet" id="prec_internet" style="width: 50px;" disabled><br><br>
+		<input type="number" name="prec_internet" id="prec_internet" style="width: 50px;" step="0.1" disabled><br><br>
 
 		<label for="telefonia">Telefonia:</label><br>
 		<label for="telefonia">Minutos de telefonia:</label>
@@ -60,7 +68,7 @@
 			<option value="500">500</option>
 		</select>
 		<label for="prec_tel">Precio:</label>
-		<input type="text" name="prec_tel" id="prec_tel" style="width: 50px;" disabled>
+		<input type="number" name="prec_tel" id="prec_tel" style="width: 50px;" step="0.1" disabled>
 		<br><br>
 		<label>Cable</label>
 		<label for="cable">Plan clave:</label>
@@ -70,7 +78,7 @@
 			<option value="ladrillo">ladrillo</option>
 		</select>
 		<label for="prec_cable">Precio:</label>
-		<input type="text" name="prec_cable" id="prec_cable" style="width: 50px;" disabled>
+		<input type="number" name="prec_cable" id="prec_cable" style="width: 50px;" step="0.1" disabled>
 
 		<br><br>
 		<input type="submit" name="Crear" class="clase1" >
@@ -133,8 +141,8 @@
 
 					cable.removeAttribute('disabled');
 					pCable.removeAttribute('disabled');
-					telefonia.setAttribute('required','true');
-					pTelefono.setAttribute('required','true');
+					cable.setAttribute('required','true');
+					pCable.setAttribute('required','true');
 					
 			}else{
 

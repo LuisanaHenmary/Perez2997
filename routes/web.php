@@ -27,14 +27,15 @@ Route::post('ingreso',[UsuarioController::class,'ingresar'])->name('ingreso');
 Route::post('registro',[UsuarioController::class,'registrar'])->name('registro');
 
 
-
-
 Route::get('/administradores/',[RutasController::class,'inicio'])->name('administradores.home');
 
 Route::get('/administradores/paquete', [RutasController::class,'paquete'])->name('administradores.paquete');
 
 Route::post('/administradores/paquete',[PaqueteController::class,'creaPaquete'])->name('administradores.paquete');
 
+Route::get('/administradores/canales', [RutasController::class,'canales'])->name('administradores.canales');
+
+Route::post('/administradores/canales',[PaqueteController::class,'guardCanal'])->name('administradores.canales');
 
 
 Route::get('/suscriptores/',[RutasController::class,'inicio2'])->name('suscriptores.home2');

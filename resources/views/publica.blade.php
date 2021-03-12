@@ -29,28 +29,27 @@
 
         .boton{
 
-           
           color: white;
           background-color: blue;
           height: 20.9px;
           padding: 2px;
          
-
         }
 
         .circulo{
 
           width: 50px;
           height: 50px;
-           border-radius: 50%;
-           padding: 10px;
-           background-color: yellow;
+          border-radius: 50%;
+          padding: 5px;
+          background-color: yellow;
+          margin-left: 10px;
 
         }
 
         .titulo{
 
-         color: white;
+          color: white;
           background-color: blue;
           height: 20.9px;
           padding: 2px;
@@ -59,7 +58,7 @@
         }
 
         .paquete{
-
+       
           border: 2px solid blue;
           text-align: center;
           float: left;
@@ -108,6 +107,13 @@
 
         }
 
+        .factura{
+            text-align: center;
+           border-collapse: collapse;
+           border: 2px solid black;
+
+        }
+
         .centerleft{
 
           padding-left: 40%;
@@ -151,7 +157,7 @@
           <a href="@yield('direccion')">@yield('link1')</a>
           <a href="@yield('direccion2')">@yield('link2')</a>
           <a href="@yield('direccion3')">@yield('link3')</a>
-
+          <a href="@yield('direccion4')">@yield('link4')</a>
 
         </nav>
         <section  class="p_top" >@yield('contenido')</section>

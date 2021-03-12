@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Paquete;
+use App\Models\Canal;
 use Illuminate\Http\Request;
 
 class RutasController extends Controller
@@ -28,6 +29,11 @@ class RutasController extends Controller
 		return view('administradores.paquete');
 	}
 
+	public function canales(){
+
+		return view('administradores.canales');
+	}
+
 	public function inicio2(){
 		return view('suscriptores.home2');
 	}
@@ -44,7 +50,9 @@ class RutasController extends Controller
 
     public function infProduct($paquete){
     	$buscar = Paquete::nombre($paquete)->get();
-    	return view('suscriptores.informacion',compact('buscar'));
+    	$canales = Canal::all();
+    	
+    	return view('suscriptores.informacion',compact('buscar','canales'));
     }
 
 }

@@ -101,7 +101,7 @@
 							</thead>"."
 					
 							<tbody><tr ><td>".
-								"<p class=\"circulo\" style=\"margin-left: 5px;\" onclick=\"Elegir()\" onmouseover=\"Sobre(this)\" onmouseout=\"Lejos(this)\"></p>
+								"<a href=\"#\" style=\"margin-left: 5px;\" ><p class=\"circulo\" onmouseover=\"Sobre(this)\"  onmouseout=\"Lejos(this)\"></p></a>
 								<tr><td>".$precio." $
 								</td></tr>
 							</td></tr></tbody>

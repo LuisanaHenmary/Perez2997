@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Usuario;
+use App\Models\suscriptor;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -47,17 +48,12 @@ class UsuarioController extends Controller
 
         if (isset($request->Registrar)) {
 
-            
-            $busquedaUsu = Usuario::user($request->Usuario);
-
-            $busquedaCorreo = Usuario::mail($request->Correo);
-
             $res = [];
 
             $puntos = 0;
 
 
-            if ($busquedaUsu->count()) {
+            if (Usuario::user($request->Usuario)->count()) {
                
                 $res[0] = 'Usuario existente ';
                                       
@@ -68,7 +64,7 @@ class UsuarioController extends Controller
             }
 
 
-            if ($busquedaCorreo->count()) {  
+            if (Usuario::mail($request->Correo)->count()) {  
 
                 $res[1] = 'Correo en uso';
                    

@@ -21,10 +21,18 @@
 @endsection
 
 @section('direccion3')
-	{{route('pagprincipal')}}
+	{{route('administradores.canales')}}
 @endsection
 
 @section('link3')
+	Canales
+@endsection
+
+@section('direccion4')
+	{{route('pagprincipal')}}
+@endsection
+
+@section('link4')
 	Salir
 @endsection
 
