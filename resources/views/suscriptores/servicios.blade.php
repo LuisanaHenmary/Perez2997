@@ -101,7 +101,7 @@
 							</thead>"."
 					
 							<tbody><tr ><td>".
-								"<p class=\"circulo\" style=\"margin-left: 5px;\" onclick=\"Elegir()\">click</p>
+								"<p class=\"circulo\" style=\"margin-left: 5px;\" onclick=\"Elegir()\" onmouseover=\"Sobre(this)\" onmouseout=\"Lejos(this)\"></p>
 								<tr><td>".$precio." $
 								</td></tr>
 							</td></tr></tbody>
@@ -123,6 +123,14 @@
 			
 			function Elegir(){
 				alert("hola");
+			}
+
+			function Sobre(punta){
+				punta.style.backgroundColor='green';
+			}
+
+			function Lejos(punta){
+				punta.style.backgroundColor='yellow';
 			}
 		</script>
 	

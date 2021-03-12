@@ -34,15 +34,18 @@
 
 	<form class="centerleft" method="POST" action="{{route('administradores.paquete')}}">
 		@csrf
+
+
 		<label  for="nomb_paqu">Nombre paquete:</label>	
 		<input type="text" name="nomb_paqu" id="nomb_paqu">	<br><br>
 
+		<label>Servicios:</label><br>	
 		<label  class="p_bottom" for="sinternet">Internet</label>
-		<input type="checkbox" name="servicios"  id="sinternet" value="internet" onclick="internetOpc()">
+		<input type="checkbox" name="servicios[]"  id="sinternet" value="internet" onclick="internetOpc()">
 		<label for="stelefonia">Telefonia</label>
-		<input type="checkbox" name="servicios" id="stelefonia" value="telefonia" onclick="telefoniaOpc()">
+		<input type="checkbox" name="servicios[]" id="stelefonia" value="telefonia" onclick="telefoniaOpc()">
 		<label >Cable</label>
-		<input type="checkbox" name="servicios" id="sclave" value="clave" onclick="cableOpc()">
+		<input type="checkbox" name="servicios[]" id="sclave" value="clave" onclick="cableOpc()" >
 		<br><br>
 
 		<label for="internet">Internet:</label><br>
@@ -53,17 +56,15 @@
 		<label for="telefonia">Telefonia:</label><br>
 		<label for="telefonia">Minutos de telefonia:</label>
 		<select name="telefonia" id="telefonia" disabled  autofocus>
-			<option value="0">-</option>
 			<option value="200">200</option>
 			<option value="500">500</option>
 		</select>
 		<label for="prec_tel">Precio:</label>
 		<input type="text" name="prec_tel" id="prec_tel" style="width: 50px;" disabled>
 		<br><br>
-
+		<label>Cable</label>
 		<label for="cable">Plan clave:</label>
 		<select name="cable" id="cable"   autofocus disabled>
-			<option value="0">-</option>
 			<option value="paja">paja</option>
 			<option value="madera">madera</option>
 			<option value="ladrillo">ladrillo</option>
@@ -72,7 +73,7 @@
 		<input type="text" name="prec_cable" id="prec_cable" style="width: 50px;" disabled>
 
 		<br><br>
-		<input type="submit" name="Crear" class="clase1">
+		<input type="submit" name="Crear" class="clase1" >
 	</form>
 		
 	@if ( session('mensaje') )
@@ -95,10 +96,14 @@
 
 				internet.removeAttribute('disabled');
 				pInternet.removeAttribute('disabled')
+				pInternet.setAttribute('required','true');
+				internet.setAttribute('required','true');
 				
 			}else{
 				pInternet.setAttribute('disabled','false');
 				internet.setAttribute('disabled','false');
+				internet.removeAttribute('required');
+				pInternet.removeAttribute('required');
 			}
 			
 		}
@@ -109,11 +114,15 @@
 
 					telefonia.removeAttribute('disabled');
 					pTelefono.removeAttribute('disabled');
+					telefonia.setAttribute('required','true');
+					pTelefono.setAttribute('required','true');
 					
 			}else{
 
 				telefonia.setAttribute('disabled','false');
 				pTelefono.setAttribute('disabled','false');
+				telefonia.removeAttribute('required');
+				pTelefono.removeAttribute('required');
 
 			}
 			
@@ -124,11 +133,15 @@
 
 					cable.removeAttribute('disabled');
 					pCable.removeAttribute('disabled');
+					telefonia.setAttribute('required','true');
+					pTelefono.setAttribute('required','true');
 					
 			}else{
 
 				cable.setAttribute('disabled','false');
 				pCable.setAttribute('disabled','false');
+				cable.removeAttribute('required');
+				pCable.removeAttribute('required');
 
 			}
 		}
