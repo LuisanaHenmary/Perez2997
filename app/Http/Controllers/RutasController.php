@@ -34,25 +34,23 @@ class RutasController extends Controller
 		return view('administradores.canales');
 	}
 
-	public function inicio2(){
-		return view('suscriptores.home2');
+	public function inicio2($nombre){
+
+		return view('suscriptores.home2',compact('nombre'));
 	}
 
-	public function servicio(){
-		return view('suscriptores.servicios');
-	}
-
-	 public function catalogo(){
+	
+	 public function catalogo($nombre){
 
     	$muestras = Paquete::all();
-    	return view('suscriptores.servicios',compact('muestras'));
+    	return view('suscriptores.servicios',compact('muestras','nombre'));
     }
 
-    public function infProduct($paquete){
+    public function infProduct($nombre,$paquete){
     	$buscar = Paquete::nombre($paquete)->get();
     	$canales = Canal::all();
     	
-    	return view('suscriptores.informacion',compact('buscar','canales'));
+    	return view('suscriptores.informacion',compact('buscar','canales','nombre'));
     }
 
 }

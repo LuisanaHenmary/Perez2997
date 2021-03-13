@@ -29,20 +29,24 @@ Route::post('registro',[UsuarioController::class,'registrar'])->name('registro')
 
 Route::get('/administradores/',[RutasController::class,'inicio'])->name('administradores.home');
 
-Route::get('/administradores/paquete', [RutasController::class,'paquete'])->name('administradores.paquete');
+Route::get('/administradores/paquete/', [RutasController::class,'paquete'])->name('administradores.paquete');
+
+Route::get('/administradores/canales/', [RutasController::class,'canales'])->name('administradores.canales');
 
 Route::post('/administradores/paquete',[PaqueteController::class,'creaPaquete'])->name('administradores.paquete');
-
-Route::get('/administradores/canales', [RutasController::class,'canales'])->name('administradores.canales');
 
 Route::post('/administradores/canales',[PaqueteController::class,'guardCanal'])->name('administradores.canales');
 
 
-Route::get('/suscriptores/',[RutasController::class,'inicio2'])->name('suscriptores.home2');
 
-Route::get('/suscriptores/servicios',[RutasController::class,'catalogo'])->name('suscriptores.servicios');
 
-Route::get('/suscriptores/informacion/{paquete}',[RutasController::class,'infProduct'])->name('suscriptores.informacion');
+Route::get('/suscriptores/{usuario}',[RutasController::class,'inicio2'])->name('suscriptores.home2');
+
+Route::get('/suscriptores/{usuario}/servicios/',[RutasController::class,'catalogo'])->name('suscriptores.servicios');
+
+Route::post('/suscriptores/servicios/comprar/',[UsuarioController::class,'comprar'])->name('suscriptores.comprar');
+
+Route::get('/suscriptores/{usuario}/servicios/informacion/{paquete}',[RutasController::class,'infProduct'])->name('suscriptores.informacion');
 
 
 

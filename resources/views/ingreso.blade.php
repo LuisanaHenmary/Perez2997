@@ -29,6 +29,12 @@
 @endsection
 
 @section('contenido')
+
+	 @if ( session('mensaje') )
+			<script type="text/javascript">
+				alert("{{session('mensaje')}}");
+			</script>
+	@endif
 	
 	<form class="centerleft" action="{{ route('ingreso') }}" method="POST">
 		@csrf
@@ -40,9 +46,7 @@
 	</form>
 
 
-	@if ( session('mensaje') )
-    	<div class="centerleft" >{{ session('mensaje') }}</div>
-	@endif
+	
 
 	<p class="centerleft">¿No tiene cuenta? <a style="color:blue;" href="{{route('registro')}}">Registrate</a></p>
 @endsection

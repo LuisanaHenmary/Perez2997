@@ -29,6 +29,11 @@
 @endsection
 
 @section('contenido')
+	 @if ( session('mensaje') )
+			<script type="text/javascript">
+				alert("{{session('mensaje')}}");
+			</script>
+	@endif
 	<form class="centerleft" action="{{ route('registro') }}" method="POST">
 		@csrf
 		<label for="Usuario" class="p_bottom">Nombre de Usuario:</label>
@@ -53,8 +58,6 @@
 		@endforeach
 	@endif
 
-	@if ( session('mensaje') )
-    	<div class="centerleft">{{ session('mensaje') }}</div>
-	@endif
+
 @endsection
 

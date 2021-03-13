@@ -1,11 +1,11 @@
 @extends('publica')
 
 @section('pageName')
-    Home
+    Informacion del Paquete
 @endsection
 
 @section('direccion')
-	{{route('suscriptores.servicios')}}
+	{{route('suscriptores.servicios',['usuario'=>$nombre])}}
 @endsection
 
 @section('link1')
@@ -60,7 +60,8 @@
 											<?php $pos = strpos($c->plan, $p->planCable) ?>
 							
 											@if($pos!==false)
-												<li>{{$c->nombreCanal}}</li>
+												<li>{{$c->nombreCanal}} <a style="color: blue;" target="_BLANK" href="{{$c->link}}"> horario</a></li>
+
 											@endif
 										@endforeach
 									</ul>

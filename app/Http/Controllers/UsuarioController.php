@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Usuario;
-use App\Models\suscriptor;
+use App\Models\Suscriptor;
+use App\Models\Paquete;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -23,12 +24,12 @@ class UsuarioController extends Controller
 
                     if ($busqueda->value('tipoUsu')=='a') {
                         
-                        return view('administradores.home',compact('datos'));
+                        return view('administradores.home');
                         
                     }
                     if ($busqueda->value('tipoUsu')=='s') {
 
-                        return view('suscriptores.home2',compact('datos'));
+                        return redirect()->route('suscriptores.home2',['usuario'=> $request->Usuario]);
                     
                     }
                 
@@ -86,6 +87,19 @@ class UsuarioController extends Controller
                     $registro->clave = $request->Clave;
                     $registro->tipoUsu =  $request->TipoUsuario;
                     $registro->save();
+
+
+                    if ($request->TipoUsuario=='s') {
+
+                        $suscripcion = new Suscriptor;
+                        $suscripcion->usuario = $request->Usuario;
+                        $suscripcion->paquete = "";
+                        $suscripcion->factura = 0;
+                        $suscripcion->save();
+                        
+                    }
+                        
+
                      return back()->with('mensaje', 'Registro exitoso');
                 }
 
@@ -102,6 +116,21 @@ class UsuarioController extends Controller
         }
     }
 
+    public function comprar(Request $request ){
+    
+            $usuario =  Suscriptor::user($request->usuario);
+            $datos  = $usuario->get();
 
+
+
+            if($usuario->value('paquete')==$request->paquete){
+                return back()->with('mensaje', 'ya tienes este paquete');
+            }
+
+            $usuario->update(['paquete'=>$request->paquete,'factura'=>$request->precio]);
+            return back()->with('mensaje', 'Paquete Comprado');
+     
+
+    }
     
 }

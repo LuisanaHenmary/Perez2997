@@ -37,7 +37,11 @@
 @endsection
 
 @section('contenido')
-
+	@if ( session('mensaje') )
+			<script type="text/javascript">
+				alert("{{session('mensaje')}}");
+			</script>
+	@endif
 
 
 	<form class="centerleft" method="POST" action="{{route('administradores.paquete')}}">
@@ -84,9 +88,7 @@
 		<input type="submit" name="Crear" class="clase1" >
 	</form>
 		
-	@if ( session('mensaje') )
-    	<div class="centerleft" >{{ session('mensaje') }}</div>
-	@endif
+	
 
 
 	<script type="text/javascript">

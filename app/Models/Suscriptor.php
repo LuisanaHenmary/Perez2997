@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Suscriptor extends Model
 {
     use HasFactory;
+
+    public function scopeUser($query,$Usuario){
+
+    	
+    	$query->where('usuario',$Usuario);
+    }
 }

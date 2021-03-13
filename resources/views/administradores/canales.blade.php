@@ -37,6 +37,11 @@
 @endsection
 
 @section('contenido')
+	@if ( session('mensaje') )
+			<script type="text/javascript">
+				alert("{{session('mensaje')}}");
+			</script>
+	@endif
 	<form class="centerleft" action="{{route('administradores.canales')}}" method="POST">
 
 		@csrf
@@ -56,7 +61,5 @@
 		<input type="submit" name="Guardar" value="Guardar" class="clase1">
 	</form>
 
-	@if ( session('mensaje') )
-    	<div class="centerleft" >{{ session('mensaje') }}</div>
-	@endif
+	
 @endsection

@@ -1,3 +1,4 @@
+
 @extends('publica')
 
 @section('pageName')
@@ -5,7 +6,7 @@
 @endsection
 
 @section('direccion')
-	{{route('suscriptores.home2')}}
+	{{route('suscriptores.home2',['usuario'=>$nombre])}}
 @endsection
 
 @section('link1')
@@ -13,7 +14,7 @@
 @endsection
 
 @section('direccion2')
-	{{route('suscriptores.servicios')}}
+	{{route('suscriptores.servicios',['usuario'=>$nombre])}}
 @endsection
 
 @section('link2')
@@ -29,18 +30,26 @@
 	Salir
 @endsection
 
+
 @section('contenido')
 	
-	<section>
-		<?php  
+	 @if ( session('mensaje') )
+			<script type="text/javascript">
+				alert("{{session('mensaje')}}");
+			</script>
+	@endif
 
+	<h2>1 SERVICIO</h2>
+	<section class="clearfl p_bottom">
+		<?php  
+			
 			if ($muestras->count()) {
 				foreach ($muestras as $p) {
 					$servicios = explode(' ', $p->categoria);
 					$num_serv = count($servicios);
 					
 					if ($num_serv==1) {
-						Imprimir("",$p->nombre,$p->precio);
+						Imprimir("",$p->nombre,$p->precio,$nombre);
 					}
 					
 				}
@@ -50,17 +59,17 @@
 
 	</section>
 
-
-	<section>
+	<h2 class="clearfl p_top">2 SERVICIOS</h2>
+	<section >
 		<?php  
-
+			
 			if ($muestras->count()) {
 				foreach ($muestras as $p) {
 					$servicios = explode(' ', $p->categoria);
 					$num_serv = count($servicios);
 					
 					if ($num_serv==2) {
-						Imprimir($num_serv,$p->nombre,$p->precio);
+						Imprimir(2,$p->nombre,$p->precio,$nombre);
 					}
 					
 				}
@@ -70,17 +79,17 @@
 
 	</section>
 
-
-	<section>
+	<h2 class="clearfl p_top">3 SERVICIO</h2>
+	<section >
 		<?php  
-
+			
 			if ($muestras->count()) {
 				foreach ($muestras as $p) {
 					$servicios = explode(' ', $p->categoria);
 					$num_serv = count($servicios);
 					
 					if ($num_serv==3) {
-						Imprimir($num_serv,$p->nombre,$p->precio);
+						Imprimir(3,$p->nombre,$p->precio,$nombre);
 					}
 					
 				}
@@ -90,25 +99,37 @@
 
 	</section>
 
+
 		<?php 
-			function Imprimir($tipo_paquete,$nombre,$precio){
+
+			function Imprimir($tipo_paquete,$nombrep,$precio,$nombre){
 
 				$cadena = "<table class=\"paquete".$tipo_paquete."\">
 							<thead class=\"titulo".$tipo_paquete."\">
-								<tr><th>".$nombre."
+								<tr><th>".$nombrep."
 								</th></tr>
 
 							</thead>"."
 					
-							<tbody><tr ><td>".
-								"<a href=\"#\" style=\"margin-left: 5px;\" ><p class=\"circulo\" onmouseover=\"Sobre(this)\"  onmouseout=\"Lejos(this)\"></p></a>
-								<tr><td>".$precio." $
+							<tbody>
+								<tr><td>
+									<form action=\"". route('suscriptores.comprar') ."\" method=\"POST\">
+										".csrf_field()."
+										<input type=\"hidden\" name=\"paquete\" value=\"".$nombrep."\" >
+										<input type=\"hidden\" name=\"precio\" value=\"".$precio."\" >
+										<input type=\"hidden\" name=\"usuario\" value=\"".$nombre."\" >
+										<input type=\"submit\" name=\"Comprar\" value=\"Comprar\" class=\"circulo\" onmouseover=\"Sobre(this)\"  onmouseout=\"Lejos(this)\">
+									</form>
+									
 								</td></tr>
-							</td></tr></tbody>
+								<tr><td>"
+									.$precio." $						
+								</td></tr>
+							</tbody>
 
 							<tfoot class=\"titulo".$tipo_paquete."\"><tr><td>
 
-								<a  href=\"".route('suscriptores.informacion',['paquete'=>$nombre])."\">DETALLES</a>
+								<a  href=\"".route('suscriptores.informacion',['paquete'=>$nombrep,'usuario'=>$nombre])."\">DETALLES</a>
 							</td></tr></tfoot>
 						</table>";
 					echo $cadena;
@@ -119,6 +140,8 @@
 
 		 ?>
 
+		
+		 f
 		<script type="text/javascript">
 			
 			function Elegir(){
@@ -135,3 +158,4 @@
 		</script>
 	
 @endsection
+

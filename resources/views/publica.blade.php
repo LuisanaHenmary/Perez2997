@@ -18,7 +18,9 @@
 
         }
 
-
+        .clearfl{
+          clear: left;
+        }
         .clase2{
 
           color: blue;
@@ -38,8 +40,8 @@
 
         .circulo{
 
-          width: 50px;
-          height: 50px;
+          width: 70px;
+          height: 70px;
           border-radius: 50%;
           padding: 5px;
           background-color: yellow;
@@ -132,6 +134,11 @@
 
         }
 
+        .p_top{
+
+          margin-top: 10px;
+
+        }
 
         a{
 
@@ -161,7 +168,7 @@
 
         </nav>
         <section  class="p_top" >@yield('contenido')</section>
-        
+        <section  class="p_top" >@yield('contenido2')</section>
 
     </body>
 </html>
