@@ -130,7 +130,7 @@
 		 ?>
 
 		
-		 f
+		 
 		<script type="text/javascript">
 			
 			function Elegir(){

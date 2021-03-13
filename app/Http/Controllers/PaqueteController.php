@@ -30,22 +30,25 @@ class PaqueteController extends Controller
                 if (isset($request->internet) && isset($request->prec_internet)) {
                 
                     $registro->internet = $request->internet;
+                    $registro->pInternet = $request->prec_internet;
                     $precio += $request->prec_internet;
                     $categoria .= 'internet';
 
 
                 }else{
                     $registro->internet = 0;
+                    $registro->pInternet = 0;
                 }
             
                 if (isset($request->telefonia) && isset($request->prec_tel)) {
 
                     $registro->minutosTelefonia = $request->telefonia;
+                    $registro->pTelefonia = $request->prec_tel;
                     $precio += $request->prec_tel;
                 
                     if ($categoria != '') {
                 
-                        $categoria .=' ';
+                        $categoria .= ' ';
                 
                      }
 
@@ -54,24 +57,27 @@ class PaqueteController extends Controller
                 }else{
 
                     $registro->minutosTelefonia = 0;
+                    $registro->pTelefonia = 0;
                 
                 }
 
                 if (isset($request->cable)  && isset($request->prec_cable)) {
             
                     $registro->planCable = $request->cable;
+                    $registro->pCable = $request->prec_cable;
                     $precio += $request->prec_cable;
 
                     if ($categoria != '') {
                 
-                        $categoria .=' ';
+                        $categoria .= ' ';
                 
                     }
 
                     $categoria .= 'cable';
             
                 }else{
-                    $registro->planCable ="";
+                    $registro->planCable = "";
+                    $registro->pCable = 0;
                 }
 
                 $registro->precio = $precio;
@@ -99,7 +105,7 @@ class PaqueteController extends Controller
                 $Agregado = new Canal;
                 $Agregado->nombreCanal = $request->nombrCanal;
                 foreach ($request->cable as $c) {
-                    if ($plan!='') {
+                    if ($plan != '') {
                         $plan .= ' ';
                     }
                     $plan .= $c;

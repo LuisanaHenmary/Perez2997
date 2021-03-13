@@ -23,15 +23,14 @@
 			
 				<table class="factura">
 
-					<thead  ><tr ><th>Paquete</th><th >{{$p->nombre}}</th></tr></thead>
+					<thead  ><tr ><th>Paquete {{$p->nombre}}</th><th >Contenido</th><th>Precio</th></tr></thead>
 					<tbody >
 
 						@if($p->internet > 0)
 							<tr style=" border: 2px solid black;">
 								<td > Internet:</td>
-								<td>
-									{{$p->internet}}	
-								</td>
+								<td>{{$p->internet}}</td>
+								<td>{{$p->pInternet}}</td>
 							</tr>
 						@endif
 
@@ -39,23 +38,19 @@
 							<tr style=" border: 2px solid black;">
 
 								<td>Minutos de Telefonia:</td>
-								<td>
-									{{$p->minutosTelefonia}}  
-								</td>
+								<td>{{$p->minutosTelefonia}}</td>
+								<td>{{$p->pTelefonia}}</td>
 							</tr>
 						@endif
 
 						@if($p->planCable != '')
 							<tr style=" border: 2px solid black;">
-								<td >Plan de clave:</td>
-								<td>{{$p->planCable}}</td>
-										
-							
-							</tr >
-							<tr style=" border: 2px solid black;">
-								<td>Canales:</td>
+								<td >Plan de clave: </td>
 								<td>
-									<ul style="list-style-type:none;">
+									{{$p->planCable}}<br>
+									<fieldset>
+										<legend>Canales</legend>
+										<ul style="list-style-type:none;">
 										@foreach($canales as $c)
 											<?php $pos = strpos($c->plan, $p->planCable) ?>
 							
@@ -64,16 +59,22 @@
 
 											@endif
 										@endforeach
-									</ul>
+										</ul>
+									</fieldset>
+									
+
 								</td>
-							</tr>
+										
+								<td>{{$p->pCable}}</td>
+							</tr >
+						
 						@endif
 
 					</tbody>
 					<tfoot>
-						<tr style=" border: 2px solid black;">
-							<td>Precio:</td>
-							<td>{{$p->precio}} $</td>
+						<tr >
+							<td>Precio total:</td>
+							<td  style=" border-right: 2px solid black;">{{$p->precio}} $</td>
 						</tr>
 						
 
