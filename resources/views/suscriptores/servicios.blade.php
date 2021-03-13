@@ -49,7 +49,7 @@
 					$num_serv = count($servicios);
 					
 					if ($num_serv==1) {
-						Imprimir("",$p->nombre,$p->precio,$nombre);
+						Imprimir("",$p->nombre,$p->precio,$nombre,$p->categoria);
 					}
 					
 				}
@@ -69,7 +69,7 @@
 					$num_serv = count($servicios);
 					
 					if ($num_serv==2) {
-						Imprimir(2,$p->nombre,$p->precio,$nombre);
+						Imprimir(2,$p->nombre,$p->precio,$nombre,$p->categoria);
 					}
 					
 				}
@@ -89,7 +89,7 @@
 					$num_serv = count($servicios);
 					
 					if ($num_serv==3) {
-						Imprimir(3,$p->nombre,$p->precio,$nombre);
+						Imprimir(3,$p->nombre,$p->precio,$nombre,$p->categoria);
 					}
 					
 				}
@@ -98,11 +98,11 @@
 		?>
 
 	</section>
-
+	</fieldset>
 
 		<?php 
 
-			function Imprimir($tipo_paquete,$nombrep,$precio,$nombre){
+			function Imprimir($tipo_paquete,$nombrep,$precio,$nombre,$servicios){
 
 				$cadena = "<table class=\"paquete".$tipo_paquete."\">
 							<thead class=\"titulo".$tipo_paquete."\">
@@ -118,7 +118,8 @@
 										<input type=\"hidden\" name=\"paquete\" value=\"".$nombrep."\" >
 										<input type=\"hidden\" name=\"precio\" value=\"".$precio."\" >
 										<input type=\"hidden\" name=\"usuario\" value=\"".$nombre."\" >
-										<input type=\"submit\" name=\"Comprar\" value=\"Comprar\" class=\"circulo\" onmouseover=\"Sobre(this)\"  onmouseout=\"Lejos(this)\">
+
+										<input title=\"".$servicios."\" type=\"submit\" name=\"Comprar\" value=\"Comprar\" class=\"circulo\" onmouseover=\"Sobre(this)\"  onmouseout=\"Lejos(this)\">
 									</form>
 									
 								</td></tr>

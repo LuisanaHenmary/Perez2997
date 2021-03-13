@@ -9,7 +9,8 @@ class RutasController extends Controller
 {
 
 	public function principal() {
-    	return view('pagprincipal');
+		$muestras = Paquete::all();
+    	return view('pagprincipal',compact('muestras'));
 	}
 
     public function ingreso() {
