@@ -18,6 +18,7 @@ class CreateSuscriptorsTable extends Migration
             $table->string('usuario');
             $table->string('paquete');
             $table->float('factura');
+            $table->boolean('activo');
             $table->timestamps();
         });
     }

@@ -31,8 +31,20 @@
 
 @section('contenido')
 	
-		<h2>1 SERVICIO</h2>
-	<section class="clearfl p_bottom">
+	<fieldset>
+		<legend>Servicios</legend>
+		<ol class="lista">
+		<li><a href="#servicios1" style="color: blue;">1 servicio</a></li>
+		<li><a href="#servicios2" style="color: blue;">2 servicios</a></li>
+		<li><a href="#servicios3" style="color: blue;">3 servicios</a></li>
+	</ol>
+	</fieldset>
+	
+	
+
+	<section class="clearfl left ">
+		<br><br><h2 class="subTitulo"><a name="servicios1"></a>
+		1 SERVICIO</h2>
 		<?php  
 			
 			if ($muestras->count()) {
@@ -51,8 +63,9 @@
 
 	</section>
 
-	<h2 class="clearfl p_top">2 SERVICIOS</h2>
-	<section >
+	
+	<section class="clearfl left ">
+		<br><br><h2 class="subTitulo"><a name="servicios2"></a>2 SERVICIOS</h2>
 		<?php  
 			
 			if ($muestras->count()) {
@@ -69,10 +82,11 @@
 
 		?>
 
-	</section>
+	</section >
 
-	<h2 class="clearfl p_top">3 SERVICIO</h2>
-	<section >
+	
+	<section class="clearfl left ">
+		<br><br><h2 class="subTitulo"><a name="servicios3"></a>3 SERVICIOS</h2>
 		<?php  
 			
 			if ($muestras->count()) {

@@ -38,4 +38,34 @@
 
 @section('contenido')
 	<p>Bienvenido administrador</p>
+
+		@if($solicitudes)
+		<table class="factura">
+			<thead><tr><th class="compras">Paquete</th><th class="compras">Usuario</th><th class="compras">Cancelar</th></tr></thead>
+			<tbody>
+			
+				
+				@foreach($solicitudes as $c)
+					<form  method="POST">
+						@csrf
+			
+					<tr class="compras">
+						
+						<td class="compras">{{$c->paquete}}</td>
+						
+						<td class="compras">{{$c->usuario}}</td>
+					
+					
+						<td class="compras"><input type="submit" name="Solicitar" value="eliminar" class="cancelar"></a></td>
+					</tr>
+
+					</form>	
+				@endforeach
+				
+			</tbody>
+		</table>
+	@endif
+	
+
+	
 @endsection

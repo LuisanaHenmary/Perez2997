@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 use App\Models\Paquete;
 use App\Models\Canal;
+use App\Models\Suscriptor;
 use Illuminate\Http\Request;
 
 class RutasController extends Controller
 {
 
+
+
 	public function principal() {
 		$muestras = Paquete::all();
     	return view('pagprincipal',compact('muestras'));
 	}
+
 
     public function ingreso() {
     	return view('ingreso');
@@ -22,11 +26,12 @@ class RutasController extends Controller
 	}
 
 	public function inicio(){
-		return view('administradores.home');
+		$solicitudes = Suscriptor::act(0)->get();
+		return view('administradores.home',compact('solicitudes'));
 	}
 
 	public function paquete(){
-
+		
 		return view('administradores.paquete');
 	}
 
@@ -37,7 +42,8 @@ class RutasController extends Controller
 
 	public function inicio2($nombre){
 
-		return view('suscriptores.home2',compact('nombre'));
+		$compras = Suscriptor::user($nombre)->get();
+		return view('suscriptores.home2',compact('nombre','compras'));
 	}
 
 	

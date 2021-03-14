@@ -24,7 +24,7 @@ class UsuarioController extends Controller
 
                     if ($busqueda->value('tipoUsu')=='a') {
                         
-                        return view('administradores.home');
+                         return redirect()->route('administradores.home');
                         
                     }
                     if ($busqueda->value('tipoUsu')=='s') {
@@ -86,19 +86,7 @@ class UsuarioController extends Controller
                     $registro->correo =  $request->Correo;
                     $registro->clave = $request->Clave;
                     $registro->tipoUsu =  $request->TipoUsuario;
-                    $registro->save();
-
-
-                    if ($request->TipoUsuario=='s') {
-
-                        $suscripcion = new Suscriptor;
-                        $suscripcion->usuario = $request->Usuario;
-                        $suscripcion->paquete = "";
-                        $suscripcion->factura = 0;
-                        $suscripcion->save();
-                        
-                    }
-                        
+                    $registro->save(); 
 
                      return back()->with('mensaje', 'Registro exitoso');
                 }
@@ -114,23 +102,63 @@ class UsuarioController extends Controller
             return view('registro',compact('res'));
 
         }
+
+
+
     }
 
     public function comprar(Request $request ){
-    
-            $usuario =  Suscriptor::user($request->usuario);
-            $datos  = $usuario->get();
+         
 
 
+            $muestras = Suscriptor::user($request->usuario)->pack($request->paquete)->get();
+           
 
-            if($usuario->value('paquete')==$request->paquete){
+            if ($muestras->count()) {
                 return back()->with('mensaje', 'ya tienes este paquete');
             }
 
-            $usuario->update(['paquete'=>$request->paquete,'factura'=>$request->precio]);
+            $suscripcion = new Suscriptor;
+            $suscripcion->usuario = $request->usuario;
+            $suscripcion->paquete = $request->paquete;
+            $suscripcion->factura = $request->precio;
+            $suscripcion->activo = 1;
+            $suscripcion->save();
             return back()->with('mensaje', 'Paquete Comprado');
-     
-
+            
     }
-    
+
+
+    public function probar(Request $request ){
+
+            $busqueda = Suscriptor::user($request->usuario)->pack($request->paquete);
+            $datos = $busqueda->get();
+
+            if ($datos->count()) 
+            {
+
+                foreach ($datos as $b) {
+
+                    if ($b->activo == 0) {
+                     
+                        $busqueda->update(['activo'=>1]);
+                    
+                    }
+
+                     if ($b->activo == 1) {
+                    
+                        $busqueda->update(['activo'=>0]);
+                    
+                    }
+
+                }
+
+
+               
+            }
+
+           return back();
+        //   
+    }
 }
+    

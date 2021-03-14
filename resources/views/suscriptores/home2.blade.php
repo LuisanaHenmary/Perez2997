@@ -32,4 +32,54 @@
 @section('contenido')
 	<p>Bienvenido suscriptor</p>
 
+	@if($compras)
+		<table class="factura">
+			<thead><tr><th class="compras">Paquete</th><th class="compras">Precio</th><th class="compras">Cancelar</th></tr></thead>
+			<tbody>
+				<?php  
+					$total = 0;
+					$clase = "";
+
+				?>
+
+				
+					
+
+				
+				@foreach($compras as $c)
+					<form action="{{route('prueba')}}" method="POST">
+						@csrf
+					<?php  
+						if ($c->activo == 1) {
+							$clase = "compras";
+							$solicitud = "cancelar";
+						}
+						if ($c->activo == 0) {
+							$clase = "cancelado";
+							$solicitud = "deshacer";
+						}
+					?>
+
+
+					<tr class="{{$clase}}">
+						
+						<td class="{{$clase}}">{{$c->paquete}}</td>
+						
+						<td class="{{$clase}}">{{$c->factura}}</td>
+						<?php $total+=$c->factura; ?>
+						<input type="hidden" name="usuario" value="{{$c->usuario}}">
+						<input type="hidden" name="paquete" value="{{$c->paquete}}">
+						<td class="{{$clase}}s"><input type="submit" name="Solicitar" value="{{$solicitud}}" class="{{$solicitud}}"></a></td>
+					</tr>
+
+					</form>	
+				@endforeach
+				
+			</tbody>
+			<tfoot><tr><td>Precio</td><td>total</td><td>{{$total}}</td></tr></tfoot>
+		</table>
+	@endif
+		
+	
+
 @endsection

@@ -39,8 +39,18 @@
 			</script>
 	@endif
 
-	<h2>1 SERVICIO</h2>
-	<section class="clearfl p_bottom">
+	
+	<fieldset>
+		<legend>Servicios</legend>
+		<ol class="lista">
+		<li><a href="#servicios1" style="color: blue;">1 servicio</a></li>
+		<li><a href="#servicios2" style="color: blue;">2 servicios</a></li>
+		<li><a href="#servicios3" style="color: blue;">3 servicios</a></li>
+	</ol>
+	</fieldset>
+
+	<section class="clearfl left p_bottom">
+		<br><br><h2 class="subTitulo"><a name="servicios1"></a>1 SERVICIO</h2>
 		<?php  
 			
 			if ($muestras->count()) {
@@ -59,8 +69,9 @@
 
 	</section>
 
-	<h2 class="clearfl p_top">2 SERVICIOS</h2>
-	<section >
+	
+	<section class="clearfl left p_bottom">
+		<br><br><h2 class="subTitulo"><a name="servicios2"></a>2 SERVICIOS</h2>
 		<?php  
 			
 			if ($muestras->count()) {
@@ -79,8 +90,9 @@
 
 	</section>
 
-	<h2 class="clearfl p_top">3 SERVICIO</h2>
-	<section >
+	
+	<section class="clearfl left p_bottom">
+		<br><br><h2 class="subTitulo"><a name="servicios3"></a>3 SERVICIO</h2>
 		<?php  
 			
 			if ($muestras->count()) {
@@ -115,9 +127,10 @@
 								<tr><td>
 									<form action=\"". route('suscriptores.comprar') ."\" method=\"POST\">
 										".csrf_field()."
+										<input type=\"hidden\" name=\"usuario\" value=\"".$nombre."\" >
 										<input type=\"hidden\" name=\"paquete\" value=\"".$nombrep."\" >
 										<input type=\"hidden\" name=\"precio\" value=\"".$precio."\" >
-										<input type=\"hidden\" name=\"usuario\" value=\"".$nombre."\" >
+										
 
 										<input title=\"".$servicios."\" type=\"submit\" name=\"Comprar\" value=\"Comprar\" class=\"circulo\" onmouseover=\"Sobre(this)\"  onmouseout=\"Lejos(this)\">
 									</form>
@@ -142,7 +155,7 @@
 		 ?>
 
 		
-		 f
+		 
 		<script type="text/javascript">
 			
 			function Elegir(){

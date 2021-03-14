@@ -18,6 +18,27 @@
 
         }
 
+        .Cabeza{
+
+          color: blue;
+          background-color: white;
+       
+
+        }
+
+        .subTitulo{
+          color: blue;
+         
+          font-style: italic;
+          text-decoration:underline dashed blue;
+          /*text-decoration-line: */
+        }
+
+        .lista{
+          list-style-type:none;
+          
+        }
+
         .clearfl{
           clear: left;
         }
@@ -116,9 +137,39 @@
 
         }
 
+        .compras{
+          padding: 10px;
+           border: 2px solid black;
+        }
+
+        .cancelar{
+          height: 30px;
+    
+          background-color: red;
+        }
+
+
+        .deshacer{
+           height: 30px;
+  
+          background-color: yellow;
+        }
+
+        .cancelado{
+           padding: 10px;
+           border: 2px solid black;
+           color: grey;
+        }
+
         .centerleft{
 
           padding-left: 40%;
+
+        }
+
+        .left{
+
+          padding-left: 10%;
 
         }
 
@@ -127,6 +178,7 @@
           padding-top: 5%;
 
         }
+
 
         .p_bottom{
 
@@ -138,6 +190,14 @@
 
           margin-top: 10px;
 
+        }
+
+
+        .logo{
+            width: 90px;
+            height: 90px;
+             margin-left:10px;
+            margin-right:70px;
         }
 
         a{
@@ -158,8 +218,9 @@
        </style>
     </head>
     <body >
-        <header class="clase2 centerleft"><!--<div><img src="Imagenes\logo.png"></div>--><h1>CableUnet</h1></header>
-        <nav class="clase1">
+        <header class="Cabeza " ><div style="float: left;"><img src="{{asset('imagenes/logounet.jpg')}}" class="logo"></div><h1 style="font-size:60px">CableUnet</h1></header>
+        
+        <nav  style="clear: left;" class="clase1">
 
           <a href="@yield('direccion')">@yield('link1')</a>
           <a href="@yield('direccion2')">@yield('link2')</a>
@@ -168,7 +229,6 @@
 
         </nav>
         <section  class="p_top" >@yield('contenido')</section>
-        <section  class="p_top" >@yield('contenido2')</section>
 
     </body>
 </html>

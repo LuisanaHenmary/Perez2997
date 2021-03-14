@@ -18,6 +18,7 @@ use App\Http\Controllers\PaqueteController;
 
 Route::get('/', [RutasController::class,'principal'] )->name('pagprincipal');
 
+
 Route::get('ingreso', [RutasController::class,'ingreso'])->name('ingreso');
 
 Route::get('registro', [RutasController::class,'registro'])->name('registro');
@@ -25,6 +26,8 @@ Route::get('registro', [RutasController::class,'registro'])->name('registro');
 Route::post('ingreso',[UsuarioController::class,'ingresar'])->name('ingreso');
 
 Route::post('registro',[UsuarioController::class,'registrar'])->name('registro');
+
+Route::post('prueba',[UsuarioController::class,'probar'])->name('prueba');
 
 
 Route::get('/administradores/',[RutasController::class,'inicio'])->name('administradores.home');
