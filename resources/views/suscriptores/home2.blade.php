@@ -47,7 +47,7 @@
 
 				
 				@foreach($compras as $c)
-					<form action="{{route('prueba')}}" method="POST">
+					<form action="{{route('Solicitar')}}" method="POST">
 						@csrf
 					<?php  
 						if ($c->activo == 1) {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Usuario;
-use App\Models\Suscriptor;
+use App\Models\Compra;
 use App\Models\Paquete;
 use Illuminate\Http\Request;
 
@@ -111,14 +111,14 @@ class UsuarioController extends Controller
          
 
 
-            $muestras = Suscriptor::user($request->usuario)->pack($request->paquete)->get();
+            $muestras = Compra::user($request->usuario)->pack($request->paquete)->get();
            
 
             if ($muestras->count()) {
                 return back()->with('mensaje', 'ya tienes este paquete');
             }
 
-            $suscripcion = new Suscriptor;
+            $suscripcion = new Compra;
             $suscripcion->usuario = $request->usuario;
             $suscripcion->paquete = $request->paquete;
             $suscripcion->factura = $request->precio;
@@ -129,9 +129,9 @@ class UsuarioController extends Controller
     }
 
 
-    public function probar(Request $request ){
+    public function solicitar(Request $request ){
 
-            $busqueda = Suscriptor::user($request->usuario)->pack($request->paquete);
+            $busqueda = Compra::user($request->usuario)->pack($request->paquete);
             $datos = $busqueda->get();
 
             if ($datos->count()) 
@@ -159,6 +159,11 @@ class UsuarioController extends Controller
 
            return back();
         //   
+    }
+
+    public function borrar(Request $request){
+        $busqueda = Compra::user($request->usuario)->pack($request->paquete)->delete();
+        return back();
     }
 }
     

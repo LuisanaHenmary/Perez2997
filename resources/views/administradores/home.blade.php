@@ -46,7 +46,7 @@
 			
 				
 				@foreach($solicitudes as $c)
-					<form  method="POST">
+					<form  method="POST" action="{{'borrar'}}">
 						@csrf
 			
 					<tr class="compras">
@@ -54,7 +54,8 @@
 						<td class="compras">{{$c->paquete}}</td>
 						
 						<td class="compras">{{$c->usuario}}</td>
-					
+						<input type="hidden" name="usuario" value="{{$c->usuario}}">
+						<input type="hidden" name="paquete" value="{{$c->paquete}}">
 					
 						<td class="compras"><input type="submit" name="Solicitar" value="eliminar" class="cancelar"></a></td>
 					</tr>

@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Suscriptor extends Model
+class Compra extends Model
 {
     use HasFactory;
 
 
-    public function scopeUser($query,$Usuario){
+     public function scopeUser($query,$Usuario){
 
     	$query->where('usuario',$Usuario);
     
@@ -27,5 +27,4 @@ class Suscriptor extends Model
     	$query->where('activo',$Actividad);
     
     }
-
 }

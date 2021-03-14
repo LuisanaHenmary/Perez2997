@@ -31,9 +31,9 @@
 
 @section('contenido')
 	
-	<fieldset>
-		<legend>Servicios</legend>
-		<ol class="lista">
+	<fieldset style="width: 100px">
+		<legend >Servicios</legend>
+		<ol class="lista" >
 		<li><a href="#servicios1" style="color: blue;">1 servicio</a></li>
 		<li><a href="#servicios2" style="color: blue;">2 servicios</a></li>
 		<li><a href="#servicios3" style="color: blue;">3 servicios</a></li>
@@ -152,11 +152,11 @@
 			}
 
 			function Sobre(punta){
-				punta.style.backgroundColor='green';
+				punta.style.backgroundColor='rgba(29,240,79,0.9)';
 			}
 
 			function Lejos(punta){
-				punta.style.backgroundColor='yellow';
+				punta.style.backgroundColor='rgba(234,190,63,1)';
 			}
 		</script>
 	

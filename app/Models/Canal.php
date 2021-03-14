@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Canal extends Model
 {
     use HasFactory;
+    
 
+    public function scopeCanal($query,$nombre){
+
+    	$query->where('nombreCanal',$nombre);
+    	
+    }
     
 }

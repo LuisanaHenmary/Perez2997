@@ -98,7 +98,14 @@ class PaqueteController extends Controller
 
     public function guardCanal(Request $request){
 
+
+        
+
         if(isset($request->Guardar)){
+
+            if(Canal::canal($request->nombrCanal)->count()){
+                return back()->with('mensaje', 'Este canal ya esta guardado'); 
+            }
 
             if (isset($request->cable)) {
                 $plan = '';

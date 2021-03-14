@@ -3,124 +3,114 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>@yield('pageName')</title>
-    
-       <style type="text/css">
+        <style type="text/css">
 
-        .clase1{
-
+        .clase1
+        {
           color: white;
           background-color: blue;
           height: 20.9px;
           padding: 2px;
           border: 2px solid blue;
-
         }
 
-        .Cabeza{
-
+        .Cabeza
+        {
           color: blue;
           background-color: white;
-       
-
         }
 
-        .subTitulo{
+        .subTitulo
+        {
           color: blue;
-         
           font-style: italic;
           text-decoration:underline dashed blue;
-          /*text-decoration-line: */
         }
 
-        .lista{
+        .lista
+        {
           list-style-type:none;
-          
+          width: 100px;
         }
 
-        .clearfl{
+        .clearfl
+        {
           clear: left;
         }
-        .clase2{
 
+        .clase2
+        {
           color: blue;
           background-color: white;
-
         }
 
 
-        .boton{
-
+        .boton
+        {
           color: white;
           background-color: blue;
           height: 20.9px;
-          padding: 2px;
-         
+          padding: 2px; 
         }
 
-        .circulo{
-
+        .circulo
+        {
           width: 70px;
           height: 70px;
           border-radius: 50%;
           padding: 5px;
-          background-color: yellow;
+          background-color: rgba(234,190,63,1);
           margin-left: 10px;
-
         }
 
-        .titulo{
-
+        .titulo
+        {
           color: white;
-          background-color: blue;
+          background-color: rgba(0,177,232,0.5);
           height: 20.9px;
           padding: 2px;
-          border: 2px solid blue;
-
+          border: 2px solid rgba(0,177,232,0.5);
         }
 
-        .paquete{
-       
-          border: 2px solid blue;
+        .paquete
+        {
+          border: 2px solid rgba(0,177,232,0.5);
           text-align: center;
           float: left;
           margin-left: 50px;
           border-collapse: collapse;
-
         }
 
-        .titulo2{
-
+        .titulo2
+        {
           color: white;
           background-color: gray;
           height: 20.9px;
           padding: 2px;
           border: 2px solid gray;
-
         }
 
-        .paquete2{
-
+        .paquete2
+        {
           border: 2px solid gray;
           text-align: center;
           float: left;
           margin-left: 50px;
           border-collapse: collapse;
-
         }
 
-        .titulo3{
-
+        .titulo3
+        {
           color: white;
           background-color: black;
           height: 20.9px;
           padding: 2px;
           border: 2px solid black;
-
         }
 
-        .paquete3{
+        .paquete3
+        {
 
           border: 2px solid black;
           text-align: center;
@@ -144,8 +134,7 @@
 
         .cancelar{
           height: 30px;
-    
-          background-color: red;
+          background-color: rgba(0,177,232,0.5);;
         }
 
 

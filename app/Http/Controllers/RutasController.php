@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Paquete;
 use App\Models\Canal;
-use App\Models\Suscriptor;
+use App\Models\Compra;
 use Illuminate\Http\Request;
 
 class RutasController extends Controller
@@ -26,7 +26,7 @@ class RutasController extends Controller
 	}
 
 	public function inicio(){
-		$solicitudes = Suscriptor::act(0)->get();
+		$solicitudes = Compra::act(0)->get();
 		return view('administradores.home',compact('solicitudes'));
 	}
 
@@ -42,7 +42,7 @@ class RutasController extends Controller
 
 	public function inicio2($nombre){
 
-		$compras = Suscriptor::user($nombre)->get();
+		$compras = Compra::user($nombre)->get();
 		return view('suscriptores.home2',compact('nombre','compras'));
 	}
 

@@ -27,7 +27,6 @@ Route::post('ingreso',[UsuarioController::class,'ingresar'])->name('ingreso');
 
 Route::post('registro',[UsuarioController::class,'registrar'])->name('registro');
 
-Route::post('prueba',[UsuarioController::class,'probar'])->name('prueba');
 
 
 Route::get('/administradores/',[RutasController::class,'inicio'])->name('administradores.home');
@@ -40,7 +39,7 @@ Route::post('/administradores/paquete',[PaqueteController::class,'creaPaquete'])
 
 Route::post('/administradores/canales',[PaqueteController::class,'guardCanal'])->name('administradores.canales');
 
-
+Route::post('borrar',[UsuarioController::class,'borrar'])->name('borrar');
 
 
 Route::get('/suscriptores/{usuario}',[RutasController::class,'inicio2'])->name('suscriptores.home2');
@@ -51,6 +50,7 @@ Route::post('/suscriptores/servicios/comprar/',[UsuarioController::class,'compra
 
 Route::get('/suscriptores/{usuario}/servicios/informacion/{paquete}',[RutasController::class,'infProduct'])->name('suscriptores.informacion');
 
+Route::post('solicitando',[UsuarioController::class,'solicitar'])->name('Solicitar');
 
 
 
