@@ -6,7 +6,7 @@
 @endsection
 
 @section('direccion')
-	{{route('suscriptores.home2',['usuario'=>$nombre])}}
+	{{route('suscriptores.servicios',['usuario'=>$nombre])}}
 @endsection
 
 @section('link1')
@@ -14,11 +14,11 @@
 @endsection
 
 @section('direccion2')
-	{{route('suscriptores.servicios',['usuario'=>$nombre])}}
+	{{route('suscriptores.home2',['usuario'=>$nombre])}}
 @endsection
 
 @section('link2')
-	Servicios
+	Tus servicios
 @endsection
 
 
@@ -42,17 +42,21 @@
 	
 		<section class="left">
 		
-		<fieldset style="width: 200px">
+		<fieldset style="width: 200px;float: left;">
 			<legend >Servicios</legend>
 			<ol class="lista" style="width: 200px" >
-				<li><a href="#servicios1" style="color: blue;">1 SERVICIOS</a></li>
-				<li><a href="#servicios2" style="color: blue;">2 SERVICIOS</a></li>
-				<li><a href="#servicios3" style="color: blue;">3 SERVICIOS</a></li>
+				<li><a href="#servicios1" style="color: blue;">1 SERVICIOS</a></li><br>
+				<li><a href="#servicios2" style="color: blue;">2 SERVICIOS</a></li><br>
+				<li><a href="#servicios3" style="color: blue;">3 SERVICIOS</a></li><br>
 			</ol>
+
 		</fieldset>
+		<div><img src="{{asset('imagenes/decoracion.jpg')}}" class="decoracion"></div>
 	</section>
 
-	<section class="clearfl left p_bottom">
+
+
+	<section class="clearfl left p_bottom" style="clear: right;">
 		<br><br><h2 class="subTitulo"><a name="servicios1"></a>1 SERVICIO</h2>
 		<?php  
 			

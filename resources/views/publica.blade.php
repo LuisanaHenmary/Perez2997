@@ -188,6 +188,12 @@
             margin-right:70px;
         }
 
+        .decoracion{
+
+          width: 55%;
+          height: 80%;
+        }
+
         a{
 
           color: white;

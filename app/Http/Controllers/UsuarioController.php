@@ -29,7 +29,7 @@ class UsuarioController extends Controller
                     }
                     if ($busqueda->value('tipoUsu')=='s') {
 
-                        return redirect()->route('suscriptores.home2',['usuario'=> $request->Usuario]);
+                        return redirect()->route('suscriptores.servicios',['usuario'=> $request->Usuario]);
                     
                     }
                 

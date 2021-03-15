@@ -13,7 +13,7 @@ Route::get('/administradores/',[RutasController::class,'inicio'])->name('adminis
 Route::get('/administradores/paquete/', [RutasController::class,'paquete'])->name('administradores.paquete');
 Route::get('/administradores/canales/', [RutasController::class,'canales'])->name('administradores.canales');
 Route::get('/suscriptores/{usuario}',[RutasController::class,'inicio2'])->name('suscriptores.home2');
-Route::get('/suscriptores/{usuario}/servicios/',[RutasController::class,'catalogo'])->name('suscriptores.servicios');
+Route::get('/suscriptores/{usuario}/inicio/',[RutasController::class,'catalogo'])->name('suscriptores.servicios');
 Route::get('/suscriptores/{usuario}/servicios/informacion/{paquete}',[RutasController::class,'infProduct'])->name('suscriptores.informacion');
 
 Route::post('ingreso',[UsuarioController::class,'ingresar'])->name('ingreso');

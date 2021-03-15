@@ -5,7 +5,8 @@
 @endsection
 
 @section('direccion')
-	{{route('suscriptores.home2',['usuario'=>$nombre])}}
+	{{route('suscriptores.servicios',['usuario'=>$nombre])}}
+	
 @endsection
 
 @section('link1')
@@ -13,11 +14,12 @@
 @endsection
 
 @section('direccion2')
-	{{route('suscriptores.servicios',['usuario'=>$nombre])}}
+
+	{{route('suscriptores.home2',['usuario'=>$nombre])}}
 @endsection
 
 @section('link2')
-	Servicios
+	Tus servicios
 @endsection
 
 
