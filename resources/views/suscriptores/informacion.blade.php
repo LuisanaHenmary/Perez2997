@@ -13,9 +13,13 @@
 @endsection
 
 @section('contenido')
-
+	 @if ( session('mensaje') )
+			<script type="text/javascript">
+				alert("{{session('mensaje')}}");
+			</script>
+	@endif
 	<div class="centerleft">
-
+		
 
 		@if($buscar->count() && $canales->count())
 			
@@ -73,8 +77,15 @@
 					</tbody>
 					<tfoot>
 						<tr >
-							<td>Precio total</td><td>:</td>
+							<td>Precio total</td>
 							<td  style=" border-right: 2px solid black;">{{$p->precio}} $</td>
+							<td><form method="POST" action="{{ route('suscriptores.comprar')}}" name="Comprar">
+								@csrf
+								<input type="hidden" name="usuario" value="{{$nombre}}" >
+								<input type="hidden" name="paquete" value="{{$p->nombre}}">
+								<input type="hidden" name="precio" value="{{$p->precio}}">
+								<input type="submit" name="Comprar" value="Comprar" class="boton" onmouseover="Sobre(this)"  onmouseout="Lejos(this)">
+							</form></td>
 						</tr>
 						
 

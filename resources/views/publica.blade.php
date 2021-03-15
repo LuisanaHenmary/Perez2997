@@ -48,8 +48,7 @@
 
         .boton
         {
-          color: white;
-          background-color: blue;
+         background-color: rgba(234,190,63,1);
           height: 20.9px;
           padding: 2px; 
         }

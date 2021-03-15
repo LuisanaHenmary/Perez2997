@@ -50,11 +50,11 @@
 					<?php  
 						if ($c->activo == 1) {
 							$clase = "compras";
-							$solicitud = "cancelar";
+							$solicitud = "cancelar suscripcion";
 						}
 						if ($c->activo == 0) {
 							$clase = "cancelado";
-							$solicitud = "deshacer";
+							$solicitud = "deshacer cancelacion";
 						}
 					?>
 

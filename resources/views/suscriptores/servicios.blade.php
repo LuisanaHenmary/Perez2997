@@ -40,14 +40,14 @@
 	@endif
 
 	
-	<section class="left">
+		<section class="left">
 		
-		<fieldset style="width: 100px">
+		<fieldset style="width: 200px">
 			<legend >Servicios</legend>
-			<ol class="lista" >
-				<li><a href="#servicios1" style="color: blue;">1 servicio</a></li>
-				<li><a href="#servicios2" style="color: blue;">2 servicios</a></li>
-				<li><a href="#servicios3" style="color: blue;">3 servicios</a></li>
+			<ol class="lista" style="width: 200px" >
+				<li><a href="#servicios1" style="color: blue;">1 SERVICIOS</a></li>
+				<li><a href="#servicios2" style="color: blue;">2 SERVICIOS</a></li>
+				<li><a href="#servicios3" style="color: blue;">3 SERVICIOS</a></li>
 			</ol>
 		</fieldset>
 	</section>
