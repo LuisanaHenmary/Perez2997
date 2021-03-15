@@ -40,14 +40,17 @@
 	@endif
 
 	
-	<fieldset style="width: 100px">
-		<legend>Servicios</legend>
-		<ol class="lista">
-		<li><a href="#servicios1" style="color: blue;">1 servicio</a></li>
-		<li><a href="#servicios2" style="color: blue;">2 servicios</a></li>
-		<li><a href="#servicios3" style="color: blue;">3 servicios</a></li>
-	</ol>
-	</fieldset>
+	<section class="left">
+		
+		<fieldset style="width: 100px">
+			<legend >Servicios</legend>
+			<ol class="lista" >
+				<li><a href="#servicios1" style="color: blue;">1 servicio</a></li>
+				<li><a href="#servicios2" style="color: blue;">2 servicios</a></li>
+				<li><a href="#servicios3" style="color: blue;">3 servicios</a></li>
+			</ol>
+		</fieldset>
+	</section>
 
 	<section class="clearfl left p_bottom">
 		<br><br><h2 class="subTitulo"><a name="servicios1"></a>1 SERVICIO</h2>
