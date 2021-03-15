@@ -36,7 +36,7 @@
 			</script>
 	@endif
 	
-	<form class="centerleft" action="{{ route('ingreso') }}" method="POST">
+	<form class="centerleft" action="{{ route('ingreso') }}" method="POST" name="Ingresar">
 		@csrf
 		<label for="Usuario" class="p_bottom">Usuario:</label>
 		<input type="text" name="Usuario" id="Usuario" required="true" class="p_bottom"><br>

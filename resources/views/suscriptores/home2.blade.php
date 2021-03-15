@@ -31,9 +31,6 @@
 
 @section('contenido')
 
-
-	
-
 	@if($compras->count()>0)
 		<section class="left">
 		<h2>Tus servicios</h2>
@@ -47,11 +44,8 @@
 				?>
 
 				
-					
-
-				
 				@foreach($compras as $c)
-					<form action="{{route('Solicitar')}}" method="POST">
+					<form action="{{route('suscriptores.solicitar')}}" method="POST" name="Solicitarcancelacion">
 						@csrf
 					<?php  
 						if ($c->activo == 1) {

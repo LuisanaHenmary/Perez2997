@@ -44,7 +44,7 @@
 	@endif
 
 
-	<form class="centerleft" method="POST" action="{{route('administradores.paquete')}}">
+	<form class="centerleft" method="POST" action="{{route('administradores.paquete')}}" name="CreaPaquete">
 		@csrf
 
 

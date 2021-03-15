@@ -34,7 +34,7 @@
 				alert("{{session('mensaje')}}");
 			</script>
 	@endif
-	<form class="centerleft" action="{{ route('registro') }}" method="POST">
+	<form class="centerleft" action="{{ route('registro') }}" method="POST" name="Registrar">
 		@csrf
 		<label for="Usuario" class="p_bottom">Nombre de Usuario:</label>
 		<input type="text" name="Usuario" id="Usuario" required="true" class="p_bottom"><br>

@@ -49,7 +49,7 @@
 			
 				
 				@foreach($solicitudes as $c)
-					<form  method="POST" action="{{'borrar'}}">
+					<form  method="POST" action="{{route('administrador.borrar')}}" name="Borrador">
 						@csrf
 			
 					<tr class="compras">
@@ -60,7 +60,7 @@
 						<input type="hidden" name="usuario" value="{{$c->usuario}}">
 						<input type="hidden" name="paquete" value="{{$c->paquete}}">
 					
-						<td class="compras"><input type="submit" name="Solicitar" value="eliminar" class="cancelar"></a></td>
+						<td class="compras"><input type="submit" name="eliminar" value="eliminar" class="cancelar"></a></td>
 					</tr>
 
 					</form>	

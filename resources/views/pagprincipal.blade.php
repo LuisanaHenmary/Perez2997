@@ -30,7 +30,7 @@
 @endsection
 
 @section('contenido')
-	
+
 	<section class="left">
 		
 		<fieldset style="width: 100px">
@@ -120,7 +120,7 @@
 					
 							<tbody>
 								<tr><td>
-									<form action=\"". route('ingreso') ."\" method=\"GET\">
+									<form action=\"". route('ingreso') ."\" method=\"GET\" name=\"VistaPrevia\">
 										".csrf_field()."
 										<input title=\"".$servicios."\" type=\"submit\" name=\"Comprar\" value=\"Comprar\" class=\"circulo\" onmouseover=\"Sobre(this)\"  onmouseout=\"Lejos(this)\">
 									</form>

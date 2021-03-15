@@ -110,8 +110,8 @@ class UsuarioController extends Controller
     public function comprar(Request $request ){
          
 
-
-            $muestras = Compra::user($request->usuario)->pack($request->paquete)->get();
+        if (isset($request->Comprar)) {
+             $muestras = Compra::user($request->usuario)->pack($request->paquete)->get();
            
 
             if ($muestras->count()) {
@@ -125,12 +125,16 @@ class UsuarioController extends Controller
             $suscripcion->activo = 1;
             $suscripcion->save();
             return back()->with('mensaje', 'Paquete Comprado');
+        }
+
+           return back();
             
     }
 
 
     public function solicitar(Request $request ){
 
+        if(isset($request->Solicitar)){
             $busqueda = Compra::user($request->usuario)->pack($request->paquete);
             $datos = $busqueda->get();
 
@@ -152,17 +156,21 @@ class UsuarioController extends Controller
                     }
 
                 }
-
-
                
             }
+        }
+            
 
            return back();
         //   
     }
 
     public function borrar(Request $request){
-        $busqueda = Compra::user($request->usuario)->pack($request->paquete)->delete();
+
+        if (isset($request->eliminar)) {
+            $busqueda = Compra::user($request->usuario)->pack($request->paquete)->delete();
+        }
+        
         return back();
     }
 }

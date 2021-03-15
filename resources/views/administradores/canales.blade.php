@@ -42,7 +42,7 @@
 				alert("{{session('mensaje')}}");
 			</script>
 	@endif
-	<form class="centerleft" action="{{route('administradores.canales')}}" method="POST">
+	<form class="centerleft" action="{{route('administradores.canales')}}" method="POST" name="GuardaCanales">
 
 		@csrf
 		<label for="nombrCanal">Nombre:</label>

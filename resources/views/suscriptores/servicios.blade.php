@@ -128,7 +128,7 @@
 					
 							<tbody>
 								<tr><td>
-									<form action=\"". route('suscriptores.comprar') ."\" method=\"POST\">
+									<form action=\"". route('suscriptores.comprar') ."\" method=\"POST\" name=\"Comprar\">
 										".csrf_field()."
 										<input type=\"hidden\" name=\"usuario\" value=\"".$nombre."\" >
 										<input type=\"hidden\" name=\"paquete\" value=\"".$nombrep."\" >
