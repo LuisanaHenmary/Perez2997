@@ -121,7 +121,7 @@
 
 				$cadena = "<table class=\"paquete".$tipo_paquete."\">
 							<thead class=\"titulo".$tipo_paquete."\">
-								<tr><th>".$nombrep."
+								<tr><th>".strtoupper($nombrep)."
 								</th></tr>
 
 							</thead>"."
