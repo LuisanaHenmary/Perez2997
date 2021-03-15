@@ -156,10 +156,6 @@
 
 		
 		<script type="text/javascript">
-			
-			function Elegir(){
-				alert("hola");
-			}
 
 			function Sobre(punta){
 				punta.style.backgroundColor='rgba(29,240,79,0.9)';
