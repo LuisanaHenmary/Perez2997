@@ -73,7 +73,7 @@
 					</tbody>
 					<tfoot>
 						<tr >
-							<td>Precio total:</td>
+							<td>Precio total</td><td>:</td>
 							<td  style=" border-right: 2px solid black;">{{$p->precio}} $</td>
 						</tr>
 						

@@ -30,10 +30,14 @@
 @endsection
 
 @section('contenido')
-	<p>Bienvenido suscriptor</p>
 
-	@if($compras)
-		<table class="factura">
+
+	
+
+	@if($compras->count()>0)
+		<section class="left">
+		<h2>Tus servicios</h2>
+		<table class="factura left">
 			<thead><tr><th class="compras">Paquete</th><th class="compras">Precio</th><th class="compras">Cancelar</th></tr></thead>
 			<tbody>
 				<?php  
@@ -78,6 +82,7 @@
 			</tbody>
 			<tfoot><tr><td>Precio</td><td>total</td><td>{{$total}}</td></tr></tfoot>
 		</table>
+		</section>
 	@endif
 		
 	

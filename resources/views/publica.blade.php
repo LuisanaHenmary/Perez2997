@@ -134,14 +134,14 @@
 
         .cancelar{
           height: 30px;
-          background-color: rgba(0,177,232,0.5);;
+          background-color: rgba(223,8,45,1);;
         }
 
 
         .deshacer{
            height: 30px;
   
-          background-color: yellow;
+          background-color: rgba(29,240,79,0.9);
         }
 
         .cancelado{

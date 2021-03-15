@@ -37,9 +37,12 @@
 @endsection
 
 @section('contenido')
-	<p>Bienvenido administrador</p>
 
-		@if($solicitudes)
+
+	@if($solicitudes->count()>0)
+
+		<section class="left">
+		<h2>Solicitudes de cancelacion</h2>
 		<table class="factura">
 			<thead><tr><th class="compras">Paquete</th><th class="compras">Usuario</th><th class="compras">Cancelar</th></tr></thead>
 			<tbody>
@@ -65,6 +68,7 @@
 				
 			</tbody>
 		</table>
+		</section>
 	@endif
 	
 
