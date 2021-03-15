@@ -119,7 +119,7 @@
 
 			function Imprimir($tipo_paquete,$nombrep,$precio,$nombre,$servicios){
 
-				$cadena = "<table class=\"paquete".$tipo_paquete."\">
+				$cadena = "<table class=\"paquete".$tipo_paquete." p_bottom\">
 							<thead class=\"titulo".$tipo_paquete."\">
 								<tr><th>".strtoupper($nombrep)."
 								</th></tr>
